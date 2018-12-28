@@ -25,5 +25,5 @@
 #define AdcArNum 10
 #define DT0      13
 #define DT1      13
-#define DT2      1//电压允许误差
+#define DT2      3//电压允许误差
 #endif										//宏定义并列放在这里

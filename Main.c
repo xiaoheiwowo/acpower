@@ -113,7 +113,7 @@ int main()
                                 _Uout = Read_AN1()/_RatioUout_AN1;
                                 Ts = _Position*_Uset/_Uout;
                                 ServoAbsPos(Ts);//修正调节
-                                ResetUserTM1(500);//500Ms调节一次
+                                ResetUserTM1(1000);//1s调节一次
                                 Flash_LED(100,2);
                             }
                         }
