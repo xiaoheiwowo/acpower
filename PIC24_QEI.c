@@ -2,36 +2,36 @@
 #include     "PIC24_QEI.h"
 #include     "PIC24_TimerX.h"
 
-//**************************QEI�趨************************************��
-void InitQEI()//�ж�ΪĬ��4��
+//**************************QEI设定************************************、
+void InitQEI()//中断为默认4级
 {
-    _QEIEN=1;                // ʹ��QEIģ��_QEIEN=1;
-    POS1HLD=0;//λ�ü�������ֵ
-    POS1CNTL=1000;//λ�ü�������ֵ
-    _FLTREN=1;//ʹ�����������˲�����Ҫ�����ϵ����˲�
-    _QFDIV=0b111;//Fcy128��Ƶ�˲�
+    _QEIEN=1;                // 使能QEI模块_QEIEN=1;
+    POS1HLD=0;//位置计数器初值
+    POS1CNTL=1000;//位置计数器初值
+    _FLTREN=1;//使能输入数字滤波，主要靠板上电容滤波
+    _QFDIV=0b111;//Fcy128分频滤波
     _GATEN=0;
-    _INTDIV=0b111;//Fcy128��Ƶ�������
+    _INTDIV=0b111;//Fcy128分频间隔计数
     
-    _PCHEQIEN=1;//λ�ü��������ڵ��ڱȽ��ж�����
-    QEI1GECL=1000;//����λ�ñȽ�ֵ�Ĵ���
-    QEI1GECH=0;//����λ�ñȽ�ֵ�Ĵ���
+    _PCHEQIEN=1;//位置计数器大于等于比较中断允许
+    QEI1GECL=1000;//大于位置比较值寄存器
+    QEI1GECH=0;//大于位置比较值寄存器
     
-    _PCLEQIEN=1;//λ�ü�����С�ڵ��ڱȽ��ж�����
-    QEI1LECL=1000;//С��λ�ñȽ�ֵ�Ĵ���
-    QEI1LECH=0;//С��λ�ñȽ�ֵ�Ĵ���
+    _PCLEQIEN=1;//位置计数器小于等于比较中断允许
+    QEI1LECL=1000;//小于位置比较值寄存器
+    QEI1LECH=0;//小于位置比较值寄存器
     
-    INT1TMRL=0;//�����������ֵ
-    INT1TMRH=0;//�����������ֵ
-    INT1HLDL=0;//������ּĴ�����ֵ
-    INT1HLDH=0;//������ּĴ�����ֵ
-//  _QEI1IP=5;//�Ƚ��жϼ�5
-    _QEI1IF=0;//�жϱ�־λ����
-    _QEI1IE=1;//����QEI�Ƚ��ж�
+    INT1TMRL=0;//间隔计数器初值
+    INT1TMRH=0;//间隔计数器初值
+    INT1HLDL=0;//间隔保持寄存器初值
+    INT1HLDH=0;//间隔保持寄存器初值
+//  _QEI1IP=5;//比较中断级5
+    _QEI1IF=0;//中断标志位清零
+    _QEI1IE=1;//许可QEI比较中断
 }
 
-//int ac=0;������
-int  _abnumber=0;             //ȫ�ֱ����������������ֵ����������ʱ�����������жϣ������д����
+//int ac=0;调试用
+int  _abnumber=0;             //全局变量，舵机待用脉冲值，调用清零时请屏蔽所以中断，避免读写竞争
 
 void __attribute__((__interrupt__,no_auto_psv)) _QEI1Interrupt(void)
 {
@@ -52,7 +52,7 @@ void __attribute__((__interrupt__,no_auto_psv)) _QEI1Interrupt(void)
       INTLS _intls;
 
 
-//    ac=ac+1;������
+//    ac=ac+1;调试用
     ab=POS1CNTL;
     _intls.intlsL= INT1HLDL;
     _intls.intlsH= INT1HLDH;
@@ -83,7 +83,7 @@ void __attribute__((__interrupt__,no_auto_psv)) _QEI1Interrupt(void)
                     _tf2=0;
                     if(ab<=1000)
                     {
-                        intls3=-28000000;//�൱��1���Ӽ���������ļ���ֵ��Ӧ�������MAXT
+                        intls3=-28000000;//相当于1分钟间隔计数器的计数值，应该足大于MAXT
                     }
                     else
                     {
@@ -156,6 +156,6 @@ void __attribute__((__interrupt__,no_auto_psv)) _QEI1Interrupt(void)
         }
     }
      POS1HLD=0;
-     POS1CNTL=1000;//��λ�üĴ���
-     _QEI1IF=0;//�жϱ�־λ����
+     POS1CNTL=1000;//清位置寄存器
+     _QEI1IF=0;//中断标志位清零
 }

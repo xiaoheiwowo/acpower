@@ -5,11 +5,11 @@
 #define COMMON_H
 
 /****====================================================
-¡¾2¡¿¹¦ÄÜº¯Êı¶¨ÒåÇø£º
+ã€2ã€‘åŠŸèƒ½å‡½æ•°å®šä¹‰åŒºï¼š
 ====================================================****/
 extern  void DelayUs(uint x);
 extern	void DelayMs(uint x);
-extern  void delaytime(int timerprod);//ÑÓÊ±×Ó³ÌĞò£¬timerprodÎªĞèÒªÑÓÊ±µÄmsÖµ
+extern  void delaytime(int timerprod);//å»¶æ—¶å­ç¨‹åºï¼Œtimerprodä¸ºéœ€è¦å»¶æ—¶çš„mså€¼
 extern	uint Abs_Subb(int a,int b);
 extern	uint CountAvg_Advalue(uint *ADV,uchar Times);
 

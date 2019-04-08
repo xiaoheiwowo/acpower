@@ -2,20 +2,20 @@
  * File:   PIC24_TimerX.c
  * Author: liupengyu
  *
- * Created on 2017Äê8ÔÂ4ÈÕ, ÏÂÎç1:26
+ * Created on 2017å¹´8æœˆ4æ—¥, ä¸‹åˆ1:26
  */
 
 
 #include "p24EP32MC202.h"
 #include "Macro.h"
 
-char AN1StableMK = 0;//Êä³öµçÑ¹ÎÈ¶¨±êÖ¾Î»£¬=0²»ÎÈ¶¨£¬=1ÎÈ¶¨
-char AN0StableMK = 0;//¸ø¶¨ÐÅºÅÎÈ¶¨±êÖ¾Î»£¬=0²»ÎÈ¶¨£¬=1ÎÈ¶¨
-int ADC_AN1[AdcArNum] = {0};//²ÉÑùÖµ±£´æÊý×é
-int ADC_AN0[AdcArNum] = {0};//²ÉÑùÖµ±£´æÊý×é
-int px = 0;//Êý×é¾ÉÖµ±£´æÎ»ÖÃ±êºÅ
-char _tn10 = 0;//100ms10´Î¼ÆÊýÖµ
-char _tf2 = 0; //1sµ½±êÖ¾
+char AN1StableMK = 0;//è¾“å‡ºç”µåŽ‹ç¨³å®šæ ‡å¿—ä½ï¼Œ=0ä¸ç¨³å®šï¼Œ=1ç¨³å®š
+char AN0StableMK = 0;//ç»™å®šä¿¡å·ç¨³å®šæ ‡å¿—ä½ï¼Œ=0ä¸ç¨³å®šï¼Œ=1ç¨³å®š
+int ADC_AN1[AdcArNum] = {0};//é‡‡æ ·å€¼ä¿å­˜æ•°ç»„
+int ADC_AN0[AdcArNum] = {0};//é‡‡æ ·å€¼ä¿å­˜æ•°ç»„
+int px = 0;//æ•°ç»„æ—§å€¼ä¿å­˜ä½ç½®æ ‡å·
+char _tn10 = 0;//100ms10æ¬¡è®¡æ•°å€¼
+char _tf2 = 0; //1såˆ°æ ‡å¿—
 char _tf3 = 0; //
 int  _UserTM1 = 0;
 int  _UserPR1 = 0;
@@ -23,92 +23,92 @@ char _UserTM1IF = 0;
 
 /**********************************************************************************************
  *                                                                                            *
- *                                       ¶¨Ê±Æ÷³õÊ¼»¯                                         *
+ *                                       å®šæ—¶å™¨åˆå§‹åŒ–                                         *
  *                                                                                            *
  *********************************************************************************************/
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid InitT1()
-¹¦ÄÜÃèÊö£º³õÊ¼»¯Timer1
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºÎÞ 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºFp=60MHz, TCKPS=64  T1CLK=0.9375MHz ÖÜÆÚÎª1.0666us PR1=46875 ¿ÉÒÔ50msÖÐ¶ÏÒ»´Î¡£
+å‡½æ•°åç§°ï¼švoid InitT1()
+åŠŸèƒ½æè¿°ï¼šåˆå§‹åŒ–Timer1
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šæ—  
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šFp=60MHz, TCKPS=64  T1CLK=0.9375MHz å‘¨æœŸä¸º1.0666us PR1=46875 å¯ä»¥50msä¸­æ–­ä¸€æ¬¡ã€‚
 ********************************************************/ 
 void InitT1()
 {
-//	TxCKPS[0]=Tx_CKPS;									   	        //±£´æµ±Ç°·ÖÆµ±È
-	T1CONbits.TON=1;										//ÆôÍ£¶¨Ê±Æ÷
-    T1CONbits.TCKPS=0B10;	                                //Ñ¡Ôñ·ÖÆµÏµÊý ¡¾10¡¿==>1:64
-	T1CONbits.TCS=0;										//=¡¾0¡¿Ñ¡ÔñÊ±ÖÓÔ´£ºFOSC/2Ê±ÖÓ	=¡¾1¡¿ ÓÐT1ECS¾ö¶¨
-//	IPC0bits.T1IP=3;										        //ÖÐ¶ÏÓÅÏÈ¼¶3
+//	TxCKPS[0]=Tx_CKPS;									   	        //ä¿å­˜å½“å‰åˆ†é¢‘æ¯”
+	T1CONbits.TON=1;										//å¯åœå®šæ—¶å™¨
+    T1CONbits.TCKPS=0B10;	                                //é€‰æ‹©åˆ†é¢‘ç³»æ•° ã€10ã€‘==>1:64
+	T1CONbits.TCS=0;										//=ã€0ã€‘é€‰æ‹©æ—¶é’Ÿæºï¼šFOSC/2æ—¶é’Ÿ	=ã€1ã€‘ æœ‰T1ECSå†³å®š
+//	IPC0bits.T1IP=3;										        //ä¸­æ–­ä¼˜å…ˆçº§3
 	TMR1=0;	
-    PR1=23585;                                              //25msÖÐ¶Ï
-	IFS0bits.T1IF=0;										//Çå³ýÖÐ¶Ï±êÖ¾Î»
-	IEC0bits.T1IE=1;										//ÔÊÐíT1ÖÐ¶Ï
+    PR1=23585;                                              //25msä¸­æ–­
+	IFS0bits.T1IF=0;										//æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½
+	IEC0bits.T1IE=1;										//å…è®¸T1ä¸­æ–­
 }
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid InitT2()
-¹¦ÄÜÃèÊö£º³õÊ¼»¯Timer2
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºÎÞ 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£º
+å‡½æ•°åç§°ï¼švoid InitT2()
+åŠŸèƒ½æè¿°ï¼šåˆå§‹åŒ–Timer2
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šæ—  
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼š
 ********************************************************/ 
-void InitT2()//ÖÐ¶ÏÎªÄ¬ÈÏ4¼¶
+void InitT2()//ä¸­æ–­ä¸ºé»˜è®¤4çº§
 {
-    T2CONbits.TCS=0;         //ÄÚ²¿Ê±ÖÓ
-    T2CONbits.TCKPS=0b11;    //Fcy256·ÖÆµ
-    TMR2=0;                 //³õÖµ0      
-    PR2=22157;             //1sÆ¥ÅäÖµ
-    _T2IF=0;                //T2ÖÐ¶Ï±êÖ¾Î»
-    //  _T2IP=3;                              //ÓÅÏÈ¼¶
-    _T2IE=1;                //T2ÖÐ¶ÏÐí¿É
-    T2CONbits.TON=1;        //T2Æô¶¯
+    T2CONbits.TCS=0;         //å†…éƒ¨æ—¶é’Ÿ
+    T2CONbits.TCKPS=0b11;    //Fcy256åˆ†é¢‘
+    TMR2=0;                 //åˆå€¼0      
+    PR2=22157;             //1såŒ¹é…å€¼
+    _T2IF=0;                //T2ä¸­æ–­æ ‡å¿—ä½
+    //  _T2IP=3;                              //ä¼˜å…ˆçº§
+    _T2IE=1;                //T2ä¸­æ–­è®¸å¯
+    T2CONbits.TON=1;        //T2å¯åŠ¨
 }
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid InitT3()
-¹¦ÄÜÃèÊö£º³õÊ¼»¯Timer3
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºÎÞ 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£º
+å‡½æ•°åç§°ï¼švoid InitT3()
+åŠŸèƒ½æè¿°ï¼šåˆå§‹åŒ–Timer3
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šæ—  
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼š
 ********************************************************/ 
 
-void InitT3()//ÖÐ¶ÏÎªÄ¬ÈÏ4¼¶
+void InitT3()//ä¸­æ–­ä¸ºé»˜è®¤4çº§
 {
-    T3CONbits.TCS=0;         //ÄÚ²¿Ê±ÖÓ
-    T3CONbits.TCKPS=0b11;    //Fcy256·ÖÆµ
+    T3CONbits.TCS=0;         //å†…éƒ¨æ—¶é’Ÿ
+    T3CONbits.TCKPS=0b11;    //Fcy256åˆ†é¢‘
     
-    TMR3=0;                 //³õÖµ0      
-    PR3=234;             //1msÆ¥ÅäÖµ
-    _T3IF=0;                //T3ÖÐ¶Ï±êÖ¾Î»
-    _T3IE=1;                //T3ÖÐ¶ÏÐí¿É
-    T3CONbits.TON=1;        //T3Æô¶¯
+    TMR3=0;                 //åˆå€¼0      
+    PR3=234;             //1msåŒ¹é…å€¼
+    _T3IF=0;                //T3ä¸­æ–­æ ‡å¿—ä½
+    _T3IE=1;                //T3ä¸­æ–­è®¸å¯
+    T3CONbits.TON=1;        //T3å¯åŠ¨
 }
 
 /**********************************************************************************************
  *                                                                                                                                *
- *                                                     ¶¨Ê±Æ÷ÖÐ¶Ï³ÌÐò                                                  *
+ *                                                     å®šæ—¶å™¨ä¸­æ–­ç¨‹åº                                                  *
  *                                                                                                                                *
  * *******************************************************************************************/
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid __attribute__((__interrupt__,no_auto_psv)) _T1Interrupt(void)
-¹¦ÄÜÃèÊö£ºÅÐ¶ÏµçÑ¹ÖµÊÇ·ñÎÈ¶¨,¼à¿Ø²ÉÑùµçÑ¹ÎÈ¶¨×Ó³ÌÐò
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£º
-·µ»ØËµÃ÷£º
-Éè ¼Æ ÈË£º
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£º¶¨Ê±Æ÷1ÖÐ¶Ï³ÌÐò
+å‡½æ•°åç§°ï¼švoid __attribute__((__interrupt__,no_auto_psv)) _T1Interrupt(void)
+åŠŸèƒ½æè¿°ï¼šåˆ¤æ–­ç”µåŽ‹å€¼æ˜¯å¦ç¨³å®š,ç›‘æŽ§é‡‡æ ·ç”µåŽ‹ç¨³å®šå­ç¨‹åº
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼š
+è¿”å›žè¯´æ˜Žï¼š
+è®¾ è®¡ äººï¼š
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šå®šæ—¶å™¨1ä¸­æ–­ç¨‹åº
 ********************************************************/ 
 void __attribute__((__interrupt__,no_auto_psv)) _T1Interrupt(void)
 {
@@ -132,7 +132,7 @@ void __attribute__((__interrupt__,no_auto_psv)) _T1Interrupt(void)
     }
     else
     {
-        AN0StableMK=0;//ÎÈ¶¨±êÖ¾Î»ÖÃ0
+        AN0StableMK=0;//ç¨³å®šæ ‡å¿—ä½ç½®0
     }
     if(AN1Max-AN1Min<=DT1)
     {
@@ -140,23 +140,23 @@ void __attribute__((__interrupt__,no_auto_psv)) _T1Interrupt(void)
     }
     else
     {
-        AN1StableMK=0;//ÎÈ¶¨±êÖ¾Î»ÖÃ0s
+        AN1StableMK=0;//ç¨³å®šæ ‡å¿—ä½ç½®0s
     }
 
     TMR1=0;
-    _T1IF=0;//ÇåÖÐ¶Ï±êÖ¾Î»
+    _T1IF=0;//æ¸…ä¸­æ–­æ ‡å¿—ä½
 }
 
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid __attribute__((__interrupt__,no_auto_psv)) _T2Interrupt(void)
-¹¦ÄÜÃèÊö£ºQEIÄ£¿éÊ¹ÓÃ
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£º
-·µ»ØËµÃ÷£º
-Éè ¼Æ ÈË£º
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£º¶¨Ê±Æ÷1ÖÐ¶Ï³ÌÐò
+å‡½æ•°åç§°ï¼švoid __attribute__((__interrupt__,no_auto_psv)) _T2Interrupt(void)
+åŠŸèƒ½æè¿°ï¼šQEIæ¨¡å—ä½¿ç”¨
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼š
+è¿”å›žè¯´æ˜Žï¼š
+è®¾ è®¡ äººï¼š
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šå®šæ—¶å™¨1ä¸­æ–­ç¨‹åº
 ********************************************************/ 
 void __attribute__((__interrupt__,no_auto_psv)) _T2Interrupt(void)
 {
@@ -164,48 +164,48 @@ void __attribute__((__interrupt__,no_auto_psv)) _T2Interrupt(void)
     if (_tn10==10)
     {
         _tn10=0;
-        T2CONbits.TON=0;     //T2Ä£¿éÍ£Ö¹ÔËÐÐ£¬µ«ÖÐ¶ÏÃ»ÓÐ½ûÖ¹
-        _tf2=1;             //ÖÃ1sµ½±êÖ¾Î»
+        T2CONbits.TON=0;     //T2æ¨¡å—åœæ­¢è¿è¡Œï¼Œä½†ä¸­æ–­æ²¡æœ‰ç¦æ­¢
+        _tf2=1;             //ç½®1såˆ°æ ‡å¿—ä½
     }
-//  TMR2=0;//ÖÐ¶Ï×Ô¶¯ÇåÁã£¬²»±ØÊÖ¶¯ÇåÁã
-    _T2IF=0;                   //ÇåÖÐ¶Ï±êÖ¾Î»
+//  TMR2=0;//ä¸­æ–­è‡ªåŠ¨æ¸…é›¶ï¼Œä¸å¿…æ‰‹åŠ¨æ¸…é›¶
+    _T2IF=0;                   //æ¸…ä¸­æ–­æ ‡å¿—ä½
 }
 
 
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid __attribute__((__interrupt__,no_auto_psv)) _T3Interrupt(void)
-¹¦ÄÜÃèÊö£ºÅÐ¶ÏµçÑ¹ÖµÊÇ·ñÎÈ¶¨,¼à¿Ø²ÉÑùµçÑ¹ÎÈ¶¨×Ó³ÌÐò
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£º
-·µ»ØËµÃ÷£º
-Éè ¼Æ ÈË£º
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£º¶¨Ê±Æ÷1ÖÐ¶Ï³ÌÐò
+å‡½æ•°åç§°ï¼švoid __attribute__((__interrupt__,no_auto_psv)) _T3Interrupt(void)
+åŠŸèƒ½æè¿°ï¼šåˆ¤æ–­ç”µåŽ‹å€¼æ˜¯å¦ç¨³å®š,ç›‘æŽ§é‡‡æ ·ç”µåŽ‹ç¨³å®šå­ç¨‹åº
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼š
+è¿”å›žè¯´æ˜Žï¼š
+è®¾ è®¡ äººï¼š
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šå®šæ—¶å™¨1ä¸­æ–­ç¨‹åº
 ********************************************************/ 
 void __attribute__((__interrupt__,no_auto_psv)) _T3Interrupt(void)
 {   
-    _tf3 = 1;             //ÖÃ1msµ½±êÖ¾Î»
+    _tf3 = 1;             //ç½®1msåˆ°æ ‡å¿—ä½
     if(_UserTM1 < _UserPR1)
     {
-        _UserTM1++;//¶¨Ê±
+        _UserTM1++;//å®šæ—¶
     }
     else _UserTM1IF = 1;
-    _T3IF = 0;                   //ÇåÖÐ¶Ï±êÖ¾Î»
+    _T3IF = 0;                   //æ¸…ä¸­æ–­æ ‡å¿—ä½
 }
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid ResetUserTM1(int pr1)
-¹¦ÄÜÃèÊö£ºÓÃ»§¶¨Ê±Æ÷
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£º
-·µ»ØËµÃ÷£º
-Éè ¼Æ ÈË£º
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºÓÃ»§¶¨Ê±Æ÷1
+å‡½æ•°åç§°ï¼švoid ResetUserTM1(int pr1)
+åŠŸèƒ½æè¿°ï¼šç”¨æˆ·å®šæ—¶å™¨
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼š
+è¿”å›žè¯´æ˜Žï¼š
+è®¾ è®¡ äººï¼š
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šç”¨æˆ·å®šæ—¶å™¨1
 ********************************************************/ 
 void ResetUserTM1(int pr1)
 {
-    //¹ØÖÐ¶Ï£¿
+    //å…³ä¸­æ–­ï¼Ÿ
     _UserTM1 = 0;
     _UserPR1 = pr1;
     _UserTM1IF = 0;

@@ -2,7 +2,7 @@
  * File:   PIC24_QEI.h
  * Author: liupengyu
  *
- * Created on 2017Äê7ÔÂ4ÈÕ, ÏÂÎç1:21
+ * Created on 2017å¹´7æœˆ4æ—¥, ä¸‹åˆ1:21
  */
 
 #ifndef PIC24_QEI_H
@@ -13,7 +13,7 @@
 #define MAXTN 1
 #define MINTN 28
 
-extern int _abnumber;//¶æ»ú´ıÓÃÂö³åÖµ
+extern int _abnumber;//èˆµæœºå¾…ç”¨è„‰å†²å€¼
 
 
 extern void InitT2();

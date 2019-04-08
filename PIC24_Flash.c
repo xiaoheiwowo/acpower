@@ -1,53 +1,53 @@
 #include "p24EP32MC202.h"
 #include "libpic30.h"
 #include "PIC24_Flash.h"
-//¶¨ÒåÒ»¸öromÇøÓò512¸öÖ¸Áî×Ö£¬µØÖ·Ôò*2=1024¸öµØÖ·£¬¶ÔÆë£¬·½±ã²Á³ı
+//å®šä¹‰ä¸€ä¸ªromåŒºåŸŸ512ä¸ªæŒ‡ä»¤å­—ï¼Œåœ°å€åˆ™*2=1024ä¸ªåœ°å€ï¼Œå¯¹é½ï¼Œæ–¹ä¾¿æ“¦é™¤
 int __attribute__((space(prog),aligned(512*2))) dat[512]={0,1688,3867,3788,36,1875};
 
 _prog_addressT p;
-int source[128]={0};//Ìá¹©¸øÓÃ»§µÄ¿É´æ´¢Êı×é
+int source[128]={0};//æä¾›ç»™ç”¨æˆ·çš„å¯å­˜å‚¨æ•°ç»„
 unsigned int offset;
 unsigned int k;
-void _copy_rom_source()    //°ÑromÖĞÔ¤´æµÄ128¸ö×Ö£¨int£©µÄÊı´æÈësource[128]Êı×éÖĞ
+void _copy_rom_source()    //æŠŠromä¸­é¢„å­˜çš„128ä¸ªå­—ï¼ˆintï¼‰çš„æ•°å­˜å…¥source[128]æ•°ç»„ä¸­
 {
-    TBLPAG=__builtin_tblpage(dat);            //»ñµÃrom±íÒ³µØÖ·
-    offset=__builtin_tbloffset(dat);          //»ñµÃrom±íÄÚÆ«ÒÆµØÖ·
+    TBLPAG=__builtin_tblpage(dat);            //è·å¾—romè¡¨é¡µåœ°å€
+    offset=__builtin_tbloffset(dat);          //è·å¾—romè¡¨å†…åç§»åœ°å€
     for (0;k<128;k++)
     {
          source[k]=__builtin_tblrdl(offset+2*k);
     }
 }
-void _wr_source_rom()       //°Ñsource[128]Êı×é´æÈëromÖĞ
+void _wr_source_rom()       //æŠŠsource[128]æ•°ç»„å­˜å…¥romä¸­
 {
-    NVMCON=0X4001;//Ğ´Ë«×ÖÉè¶¨
-    TBLPAG=0xfa;//Ğ´Ëø´æÆ÷Ò³µØÖ·
-    offset=0;   //Ğ´Ëø´æÆ÷Æ«ÒÆ0»òÕß2Ö»ÓĞÁ½¸öÖ¸Áî×Ö
+    NVMCON=0X4001;//å†™åŒå­—è®¾å®š
+    TBLPAG=0xfa;//å†™é”å­˜å™¨é¡µåœ°å€
+    offset=0;   //å†™é”å­˜å™¨åç§»0æˆ–è€…2åªæœ‰ä¸¤ä¸ªæŒ‡ä»¤å­—
     unsigned int offset00;
     unsigned int page00;
-    page00=__builtin_tblpage(dat);    //´ıĞ´romÆğÊ¼µØÖ·ËùÔÚÒ³
-    offset00=__builtin_tbloffset(dat);//´ıĞ´romÆğÊ¼µØÖ·ËùÔÚÒ³ÄÚÆ«ÒÆ
+    page00=__builtin_tblpage(dat);    //å¾…å†™romèµ·å§‹åœ°å€æ‰€åœ¨é¡µ
+    offset00=__builtin_tbloffset(dat);//å¾…å†™romèµ·å§‹åœ°å€æ‰€åœ¨é¡µå†…åç§»
     
     k=0;
-    while(k<128/2)                //Ğ´128/2=64´ÎÑ­»·£¬Ã¿´ÎĞ´Á½¸ösourceÔªËØ
+    while(k<128/2)                //å†™128/2=64æ¬¡å¾ªç¯ï¼Œæ¯æ¬¡å†™ä¸¤ä¸ªsourceå…ƒç´ 
     {
        
-        __builtin_tblwtl(offset,source[2*k]);     //ÏòµÚÒ»¸öËø´æÆ÷ÖĞĞ´µÍ×Ö
-        __builtin_tblwtl(offset+2,source[2*k+1]); //ÏòµÚ¶ş¸öËø´æÆ÷ÖĞĞ´µÍ×Ö
+        __builtin_tblwtl(offset,source[2*k]);     //å‘ç¬¬ä¸€ä¸ªé”å­˜å™¨ä¸­å†™ä½å­—
+        __builtin_tblwtl(offset+2,source[2*k+1]); //å‘ç¬¬äºŒä¸ªé”å­˜å™¨ä¸­å†™ä½å­—
         
-        NVMADRU=page00;                //´ıĞ´ÈëromÒ³£¬²»±ä
-        NVMADR=offset00+4*k;           //Ğ´Ò»¸öÑ­»·Á½¸öÔªËØ£¬ÓÃµô4¸öµØÖ·£¬Ã¿¸öÔªËØÕ¼ÓÃÁ½¸öµØÖ·£¬Ö»ÓÃÕ¼ÓÃµÄµÍµØÖ·
+        NVMADRU=page00;                //å¾…å†™å…¥romé¡µï¼Œä¸å˜
+        NVMADR=offset00+4*k;           //å†™ä¸€ä¸ªå¾ªç¯ä¸¤ä¸ªå…ƒç´ ï¼Œç”¨æ‰4ä¸ªåœ°å€ï¼Œæ¯ä¸ªå…ƒç´ å ç”¨ä¸¤ä¸ªåœ°å€ï¼Œåªç”¨å ç”¨çš„ä½åœ°å€
         _IPL=7;
-        __builtin_write_NVM();         //Æô¶¯Ğ´ĞòÁĞÊ¹ÄÜ
+        __builtin_write_NVM();         //å¯åŠ¨å†™åºåˆ—ä½¿èƒ½
         _IPL=0;
         k++;
     }
 }
 
-void _eraseflash()                     //²Á³ıÒ³º¯Êı
+void _eraseflash()                     //æ“¦é™¤é¡µå‡½æ•°
 {
-    _init_prog_address(p,dat);  //c30¿âº¯Êı£¬»ñµÃdatÌØÊâÖ¸Õë£¬²»ÊÇÆÕÍ¨cÖ¸Õë£¬×¢Òâ
+    _init_prog_address(p,dat);  //c30åº“å‡½æ•°ï¼Œè·å¾—datç‰¹æ®ŠæŒ‡é’ˆï¼Œä¸æ˜¯æ™®é€šcæŒ‡é’ˆï¼Œæ³¨æ„
     _IPL=7;
-    _erase_flash(p);                    //Æô¶¯²Á³ıÒ³512¸öÖ¸Áî×Ö
+    _erase_flash(p);                    //å¯åŠ¨æ“¦é™¤é¡µ512ä¸ªæŒ‡ä»¤å­—
     _IPL=0;
 }
 

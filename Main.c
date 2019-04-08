@@ -49,7 +49,7 @@
 // Use project enums instead of #define for ON and OFF.
 
 
-int    sourcebak[6] = {0,1609,3867,3788,36,1875};//²ÎÊı±£´æÊı×é
+int    sourcebak[6] = {0,1609,3867,3788,36,1875};//å‚æ•°ä¿å­˜æ•°ç»„
 long   _Uset = 0;
 long   _Uout = 0;
 float  _RatioUset_AN0 = 0;
@@ -59,32 +59,32 @@ char   _FirstFinish = 0;
 
 int main()
 {
-    Init();//³õÊ¼»¯
-    _copy_rom_source();//¶ÁÈ¡romÖĞµÄsource
-/**********************************µ÷ÊÔ´úÂë¿ªÊ¼**************************************/
+    Init();//åˆå§‹åŒ–
+    _copy_rom_source();//è¯»å–romä¸­çš„source
+/**********************************è°ƒè¯•ä»£ç å¼€å§‹**************************************/
 
-/**********************************µ÷ÊÔ´úÂë½áÊø**************************************/
-    char A = 0;//°´¼ü±êÖ¾Î»
+/**********************************è°ƒè¯•ä»£ç ç»“æŸ**************************************/
+    char A = 0;//æŒ‰é”®æ ‡å¿—ä½
 
     int Ts = 0;
     AN0StableMK = 0;
     AN1StableMK = 0;
     while(1)
     {
-        _Zero = source[0];//ÏÂ¼«ÏŞÎ»ÖÃ
-        _Gap = source[4];//Õı·´×ª¼äÏ¶
-        _RatioUset_AN0 = source[3]/300.0;//¸ø¶¨5vĞÅºÅ¼ÆËãµÃµ½
-        _RatioUout_AN1 = source[2]/305.0;//·´À¡ĞÅºÅ²ÉÑù¼ÆËãµÃµ½
+        _Zero = source[0];//ä¸‹æé™ä½ç½®
+        _Gap = source[4];//æ­£åè½¬é—´éš™
+        _RatioUset_AN0 = source[3]/300.0;//ç»™å®š5vä¿¡å·è®¡ç®—å¾—åˆ°
+        _RatioUout_AN1 = source[2]/305.0;//åé¦ˆä¿¡å·é‡‡æ ·è®¡ç®—å¾—åˆ°
         _RatioUout_Servo = source[1]/305.0;
-        _PosMax = source[5];//ÉÏ¼«ÏŞÎ»ÖÃ
-        if(SET == 1)                                   //¼ì²âset°´Å¥
+        _PosMax = source[5];//ä¸Šæé™ä½ç½®
+        if(SET == 1)                                   //æ£€æµ‹setæŒ‰é’®
         {
             LED1 = 1;
             LED2 = 1;
             if(A == 0)
             {
-                _eraseflash();//²Á³ıÒ³
-                _wr_source_rom();//½«sourceÊı×é´æÈëROM
+                _eraseflash();//æ“¦é™¤é¡µ
+                _wr_source_rom();//å°†sourceæ•°ç»„å­˜å…¥ROM
                 A=1;
             }
             else
@@ -93,8 +93,8 @@ int main()
                 {
                     _Uset = Read_AN0()/_RatioUset_AN0;
                     Ts = _Uset*_RatioUout_Servo;
-                    ServoAbsPos(Ts);//Ê×´Îµ÷½Ú
-                    ResetUserTM1(100);//¶¨Ê±100ms
+                    ServoAbsPos(Ts);//é¦–æ¬¡è°ƒèŠ‚
+                    ResetUserTM1(100);//å®šæ—¶100ms
                 }
                 else
                 {
@@ -112,8 +112,8 @@ int main()
                             {
                                 _Uout = Read_AN1()/_RatioUout_AN1;
                                 Ts = _Position*_Uset/_Uout;
-                                ServoAbsPos(Ts);//ĞŞÕıµ÷½Ú
-                                ResetUserTM1(1000);//1sµ÷½ÚÒ»´Î
+                                ServoAbsPos(Ts);//ä¿®æ­£è°ƒèŠ‚
+                                ResetUserTM1(1000);//1sè°ƒèŠ‚ä¸€æ¬¡
                                 Flash_LED(100,2);
                             }
                         }
@@ -133,41 +133,41 @@ int main()
                     OC1R = OC1R + _abnumber;
                 }
             }
-//            ServoAbsPos(_Position+_abnumber);                               //¶æ»úÏà¶ÔÎ»ÖÃ
+//            ServoAbsPos(_Position+_abnumber);                               //èˆµæœºç›¸å¯¹ä½ç½®
             _abnumber = 0;
             SET_CPU_IPL(3);
-            if(K1 == 0 && K2 != 0 && K3 != 0 && GAP != 0 && EXT != 0)//±£´æ0µçÑ¹µãµÄÎ»ÖÃ
+            if(K1 == 0 && K2 != 0 && K3 != 0 && GAP != 0 && EXT != 0)//ä¿å­˜0ç”µå‹ç‚¹çš„ä½ç½®
             {
                 if(A == 0)
                 {
-                    source[0] = OC1R-469;//_Zero±£´æ
+                    source[0] = OC1R-469;//_Zeroä¿å­˜
                     A = 1;
                     Flash_LED(100,2);
                 }
             }
-            else if(K2 == 0 && K1 != 0 && K3 != 0 && GAP != 0 && EXT != 0)//±£´æ305VµÄ²ÎÊı
+            else if(K2 == 0 && K1 != 0 && K3 != 0 && GAP != 0 && EXT != 0)//ä¿å­˜305Vçš„å‚æ•°
             {
                 if(A == 0)
                 {
-                    source[1] = OC1R-469-source[0];//305vÎ»ÖÃ
-                    source[2] = Read_AN1();//305v ad²ÉÑùÖµ
+                    source[1] = OC1R-469-source[0];//305vä½ç½®
+                    source[2] = Read_AN1();//305v adé‡‡æ ·å€¼
                     source[5] = source[2];
                     A = 1;
                     Flash_LED(100,2);
-                    //´æ150V²ÎÊı
+                    //å­˜150Vå‚æ•°
                 }
             }
-            else if(K3 == 0 && K2 != 0 && K1 != 0 && GAP != 0 && EXT != 0)//±£´æ¸ø¶¨ĞÅºÅµÄ5vÊ±µÄ²ÉÑùÖµ
+            else if(K3 == 0 && K2 != 0 && K1 != 0 && GAP != 0 && EXT != 0)//ä¿å­˜ç»™å®šä¿¡å·çš„5væ—¶çš„é‡‡æ ·å€¼
             {
                 if(A == 0)
                 {
                     source[3] = Read_AN0();
                     A = 1;
                     Flash_LED(100,2);
-                    //´æ300V²ÎÊı
+                    //å­˜300Vå‚æ•°
                 }
             }
-            else if(GAP == 0 && K2 != 0 && K3 != 0 && K1 != 0 && EXT != 0)//¼ì²â¼äÏ¶
+            else if(GAP == 0 && K2 != 0 && K3 != 0 && K1 != 0 && EXT != 0)//æ£€æµ‹é—´éš™
             {
                 if(A == 0)
                 {
@@ -176,7 +176,7 @@ int main()
                     A = 1;
                 }
             }
-            else if(EXT == 0 && GAP != 0 && K2 != 0 && K3 != 0 && K1 != 0)//»Ö¸´Ä¬ÈÏÉèÖÃ
+            else if(EXT == 0 && GAP != 0 && K2 != 0 && K3 != 0 && K1 != 0)//æ¢å¤é»˜è®¤è®¾ç½®
             {
                 if(A == 0)
                 {

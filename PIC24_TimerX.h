@@ -13,15 +13,15 @@
 
 #include "Macro.h"
 
-extern  char    AN1StableMK;//Êä³öµçÑ¹ÎÈ¶¨±êÖ¾Î»£¬=0²»ÎÈ¶¨£¬=1ÎÈ¶¨
-extern  char    AN0StableMK;//¸ø¶¨ĞÅºÅÎÈ¶¨±êÖ¾Î»£¬=0²»ÎÈ¶¨£¬=1ÎÈ¶¨
-extern  int     ADC_AN1[AdcArNum];//²ÉÑùÖµ±£´æÊı×é
-extern  int     ADC_AN0[AdcArNum];//²ÉÑùÖµ±£´æÊı×é
-extern  int     px;//Êı×é¾ÉÖµ±£´æÎ»ÖÃ±êºÅ
+extern  char    AN1StableMK;//è¾“å‡ºç”µå‹ç¨³å®šæ ‡å¿—ä½ï¼Œ=0ä¸ç¨³å®šï¼Œ=1ç¨³å®š
+extern  char    AN0StableMK;//ç»™å®šä¿¡å·ç¨³å®šæ ‡å¿—ä½ï¼Œ=0ä¸ç¨³å®šï¼Œ=1ç¨³å®š
+extern  int     ADC_AN1[AdcArNum];//é‡‡æ ·å€¼ä¿å­˜æ•°ç»„
+extern  int     ADC_AN0[AdcArNum];//é‡‡æ ·å€¼ä¿å­˜æ•°ç»„
+extern  int     px;//æ•°ç»„æ—§å€¼ä¿å­˜ä½ç½®æ ‡å·
 extern  char    _tf2;
 extern  char    _tf3;
-extern  int     _UserTM1;//500ms¼ÆÊı
-extern  char    _UserTM1IF;//500msµ½±êÖ¾Î»
+extern  int     _UserTM1;//500msè®¡æ•°
+extern  char    _UserTM1IF;//500msåˆ°æ ‡å¿—ä½
 
 extern  char    _tn10;
 extern  void    InitT1();

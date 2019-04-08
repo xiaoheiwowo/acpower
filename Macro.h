@@ -2,17 +2,17 @@
 #define __Macro_H__
 
 /* ---------------------------------------------------------- */
-/* KLD¹«¹²ºê¶¨Òå===¿ªÊ¼ */
+/* KLDå…¬å…±å®å®šä¹‰===å¼€å§‹ */
 /* ---------------------------------------------------------- */
 #define uchar 	unsigned char
 #define uint  	unsigned int
-#define ulong	unsigned long		//³¤ÕûĞÍ
+#define ulong	unsigned long		//é•¿æ•´å‹
 
-#define MHZ(x) 		x##000000				//ÓÃMHZ(x) À´´úÌæx##000000
-#define KHZ(x) 		x##000					//ÓÃKHZ(x) À´´úÌæx##000
+#define MHZ(x) 		x##000000				//ç”¨MHZ(x) æ¥ä»£æ›¿x##000000
+#define KHZ(x) 		x##000					//ç”¨KHZ(x) æ¥ä»£æ›¿x##000
 
-#define	AN0	   0					//¿ØÖÆĞÅºÅAD×ª»»Í¨µÀ AN0
-#define AN1    1                   //·´À¡ĞÅºÅAD×ª»»Í¨µÀ AN1
+#define	AN0	   0					//æ§åˆ¶ä¿¡å·ADè½¬æ¢é€šé“ AN0
+#define AN1    1                   //åé¦ˆä¿¡å·ADè½¬æ¢é€šé“ AN1
 
 #define SET   PORTBbits.RB15
 #define K1    PORTBbits.RB14
@@ -25,5 +25,5 @@
 #define AdcArNum 10
 #define DT0      13
 #define DT1      13
-#define DT2      3//µçÑ¹ÔÊĞíÎó²î
-#endif										//ºê¶¨Òå²¢ÁĞ·ÅÔÚÕâÀï
+#define DT2      2//ç”µå‹å…è®¸è¯¯å·®
+#endif										//å®å®šä¹‰å¹¶åˆ—æ”¾åœ¨è¿™é‡Œ

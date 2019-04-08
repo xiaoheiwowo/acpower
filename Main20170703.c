@@ -41,7 +41,7 @@
 
 #define uchar 	unsigned char
 #define uint  	unsigned int
-#define ulong	unsigned long		//³¤ÕûÐÍ
+#define ulong	unsigned long		//é•¿æ•´åž‹
 
 #define True 		1
 #define False		0
@@ -54,7 +54,7 @@
 
 #define TRUE 		1
 #define FALSE		0
-#define EQUAL       2                       //ÏàÍ¬
+#define EQUAL       2                       //ç›¸åŒ
 
 #define HIGH		1
 #define LOW			0
@@ -68,33 +68,33 @@
 #define	FKON		1
 #define	FKOFF		0
 
-#define MHZ(x) 		x##000000				//ÓÃMHZ(x) À´´úÌæx##000000
-#define KHZ(x) 		x##000					//ÓÃKHZ(x) À´´úÌæx##000
+#define MHZ(x) 		x##000000				//ç”¨MHZ(x) æ¥ä»£æ›¿x##000000
+#define KHZ(x) 		x##000					//ç”¨KHZ(x) æ¥ä»£æ›¿x##000
 
 /***=======================================================
-[1]==>>±äÁ¿¶¨ÒåÇø<<==
+[1]==>>å˜é‡å®šä¹‰åŒº<<==
 ==========================================================**/
 
-#define	WZAD_Channel	0					//Î»ÖÃÐÅºÅAD×ª»»Í¨µÀ AN0
+#define	WZAD_Channel	0					//ä½ç½®ä¿¡å·ADè½¬æ¢é€šé“ AN0
 /***=======================================================
-	==>>¹¦ÄÜº¯Êý<<==
+	==>>åŠŸèƒ½å‡½æ•°<<==
 ==========================================================**/
-#define ADC_Auto	1			//×Ô¶¯×ª»»Ä£Ê½
-#define ADC_Manul	0			//ÊÖ¶¯×ª»»Ä£Ê½
-#define SCCR_Auto	7			//0B111 ÄÚ²¿¼ÆÊýÆ÷½áÊø²ÉÑùºó×Ô¶¯×ª»»
-#define SCCR_Manul	0			//0B000 ÇåÁãSAMP=0 ½áÊø²ÉÑù²¢Æô¶¯×ª»» ¡¾ÊÖ¶¯Ä£Ê½¡¿
+#define ADC_Auto	1			//è‡ªåŠ¨è½¬æ¢æ¨¡å¼
+#define ADC_Manul	0			//æ‰‹åŠ¨è½¬æ¢æ¨¡å¼
+#define SCCR_Auto	7			//0B111 å†…éƒ¨è®¡æ•°å™¨ç»“æŸé‡‡æ ·åŽè‡ªåŠ¨è½¬æ¢
+#define SCCR_Manul	0			//0B000 æ¸…é›¶SAMP=0 ç»“æŸé‡‡æ ·å¹¶å¯åŠ¨è½¬æ¢ ã€æ‰‹åŠ¨æ¨¡å¼ã€‘
 /******************************************
- ASAM	=1 ±íÊ¾×Ô¶¯²ÉÑù,²¢×Ô¶¯½«SAMP ÖÃÎª1ÊµÏÖ×Ô¶¯×ª»»¡£ 
- ASAM 	=0 ÓÉSAMP À´¿ØÖÆ²ÉÑù
- ASAM=1 Ê±ÐèÒªÉèÖÃSCCR = 111 ÄÚ²¿¼ÆÊýÆ÷½áÊøºó²ÉÑù²¢Æô¶¯×ª»»¡¾×Ô¶¯×ª»»¡¿
-                       = 010 Timer3Æô¶¯
-                       = 001 INT0Æô¶¯
-                       = 000 ÇåÁãSAMP=0 ½áÊø²ÉÑù²¢Æô¶¯×ª»» ¡¾ÊÖ¶¯Ä£Ê½¡¿
- ´Ëº¯Êý¿ÉÒÔÏÔÊ¾£ºADC_Mode(x,y)
+ ASAM	=1 è¡¨ç¤ºè‡ªåŠ¨é‡‡æ ·,å¹¶è‡ªåŠ¨å°†SAMP ç½®ä¸º1å®žçŽ°è‡ªåŠ¨è½¬æ¢ã€‚ 
+ ASAM 	=0 ç”±SAMP æ¥æŽ§åˆ¶é‡‡æ ·
+ ASAM=1 æ—¶éœ€è¦è®¾ç½®SCCR = 111 å†…éƒ¨è®¡æ•°å™¨ç»“æŸåŽé‡‡æ ·å¹¶å¯åŠ¨è½¬æ¢ã€è‡ªåŠ¨è½¬æ¢ã€‘
+                       = 010 Timer3å¯åŠ¨
+                       = 001 INT0å¯åŠ¨
+                       = 000 æ¸…é›¶SAMP=0 ç»“æŸé‡‡æ ·å¹¶å¯åŠ¨è½¬æ¢ ã€æ‰‹åŠ¨æ¨¡å¼ã€‘
+ æ­¤å‡½æ•°å¯ä»¥æ˜¾ç¤ºï¼šADC_Mode(x,y)
 *******************************************/
 
 
-int step=0;                                                 //¶æ»ú×ª¶¯²½Êý
+int step=0;                                                 //èˆµæœºè½¬åŠ¨æ­¥æ•°
 int OC1R_Before=469;
 
 void Init_PWM()
@@ -113,98 +113,98 @@ void ServoPosition(int Position)
 }
 void ServoMove(int step)
 {
-    OC1RS = 50000;                                          //ÖÜÆÚ20ms   t=0.4us
-    OC1R = OC1R_Before+2*step;                              //¸ßµçÆ½
+    OC1RS = 50000;                                          //å‘¨æœŸ20ms   t=0.4us
+    OC1R = OC1R_Before+2*step;                              //é«˜ç”µå¹³
     OC1R_Before = OC1R;
 }
 
-#define     WZAD           PORTAbits.RA0                    //Î»ÖÃADµÄÄ£Äâ×ª»»
+#define     WZAD           PORTAbits.RA0                    //ä½ç½®ADçš„æ¨¡æ‹Ÿè½¬æ¢
 
-uint 	V_Set;  					                            //µ±Ç°Î»ÖÃµÄADÖµ
+uint 	V_Set;  					                            //å½“å‰ä½ç½®çš„ADå€¼
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid Init_ADC() 
-¹¦ÄÜÃèÊö: AD×ª»»µÄ³õÊ¼»¯
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºÎÞ 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
+å‡½æ•°åç§°ï¼švoid Init_ADC() 
+åŠŸèƒ½æè¿°: ADè½¬æ¢çš„åˆå§‹åŒ–
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šæ—  
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
 ********************************************************/ 
 void Init_ADC() 
 { 
-  /*1 = ¶Ë¿ÚÒý½Å´¦ÓÚÊý×ÖÄ£Ê½£¬Ê¹ÄÜ¶Ë¿Ú¶ÁÊäÈë£¬ ADC ÊäÈë¶àÂ·¿ª¹ØÁ¬½Óµ½AVSS
-       0 = ¶Ë¿ÚÒý½Å´¦ÓÚÄ£ÄâÄ£Ê½£¬½ûÖ¹¶Ë¿Ú¶ÁÊäÈë£¬ ADC ²ÉÑùÒý½ÅµçÑ¹                     */
+  /*1 = ç«¯å£å¼•è„šå¤„äºŽæ•°å­—æ¨¡å¼ï¼Œä½¿èƒ½ç«¯å£è¯»è¾“å…¥ï¼Œ ADC è¾“å…¥å¤šè·¯å¼€å…³è¿žæŽ¥åˆ°AVSS
+       0 = ç«¯å£å¼•è„šå¤„äºŽæ¨¡æ‹Ÿæ¨¡å¼ï¼Œç¦æ­¢ç«¯å£è¯»è¾“å…¥ï¼Œ ADC é‡‡æ ·å¼•è„šç”µåŽ‹                     */
     ANSELA=ANSELB=0;				//
     ANSELAbits.ANSA0=1;             //AN0
    
-    AD1CSSLbits.CSS0=0;				//1 = Ñ¡Ôñ¶ÔAN0£¬AN1 ½øÐÐÊäÈëÉ¨Ãè 0 = ÊäÈëÉ¨ÃèÊ±Ìø¹ýANx
+    AD1CSSLbits.CSS0=0;				//1 = é€‰æ‹©å¯¹AN0ï¼ŒAN1 è¿›è¡Œè¾“å…¥æ‰«æ 0 = è¾“å…¥æ‰«ææ—¶è·³è¿‡ANx
     AD1CSSLbits.CSS1=0;
 
-    AD1CON1bits.ADON=0;				//Í£Ö¹AD
+    AD1CON1bits.ADON=0;				//åœæ­¢AD
     AD1CON1bits.DONE=0;
-    AD1CON1bits.ADSIDL=0;			//¿ÕÏÐÊ±Í£Ö¹¹¤×÷£¬Ä¿µÄÊÇÊ¡µç
-    AD1CON1bits.AD12B=1;			//12Î»Ä£Ê½	¡¾ÐèÒªÐÞ¸ÄÏµÍ³×Ô´øµÄ.hÎÄ¼þ¡¿
-    AD1CON1bits.FORM=0;				//00 ÎÞ·ûºÅ¾ø¶ÔÊ®½øÖÆÓÒ¶ÔÆë
-    AD1CON1bits.SAMP=0;				//0 = SAMP Î»ÖÃ1 Ê±¿ªÊ¼²ÉÑù
+    AD1CON1bits.ADSIDL=0;			//ç©ºé—²æ—¶åœæ­¢å·¥ä½œï¼Œç›®çš„æ˜¯çœç”µ
+    AD1CON1bits.AD12B=1;			//12ä½æ¨¡å¼	ã€éœ€è¦ä¿®æ”¹ç³»ç»Ÿè‡ªå¸¦çš„.hæ–‡ä»¶ã€‘
+    AD1CON1bits.FORM=0;				//00 æ— ç¬¦å·ç»å¯¹åè¿›åˆ¶å³å¯¹é½
+    AD1CON1bits.SAMP=0;				//0 = SAMP ä½ç½®1 æ—¶å¼€å§‹é‡‡æ ·
     AD1CON1bits.ADDMABM=0;			//ADC DMA
-    AD1CON1bits.SIMSAM=0;			//=Ò»´Î²ÉÑù £¬=1 Í¬Ê±²ÉÑù
-    AD1CON1bits.SSRCG=0;            //ÒÔ0·½Ê½¶ÔSSRC½øÐÐ±à³Ì
+    AD1CON1bits.SIMSAM=0;			//=ä¸€æ¬¡é‡‡æ · ï¼Œ=1 åŒæ—¶é‡‡æ ·
+    AD1CON1bits.SSRCG=0;            //ä»¥0æ–¹å¼å¯¹SSRCè¿›è¡Œç¼–ç¨‹
     
-    AD1CON2bits.VCFG=0B000;			//00±íÊ¾ÄÚ²¿AVDD   01±íÊ¾Íâ²¿VREF+
-    AD1CON2bits.CSCNA=0;			//=1 É¨ÃèÊäÈë ÔòÖ»¶ÔCHOSAÍ¨µÀÉ¨Ãè²É¼¯  =0 ²»É¨ÃèÊäÈëÉ¨Ãè
-    AD1CON2bits.CHPS=0B00;          //12Î»Ä£Ê½ÏÂ¶ÁÎª0
-    AD1CON2bits.SMPI=0B0000;        //=0000 Ã¿Íê³É1 ´Î²ÉÑù/ ×ª»»²Ù×÷ºóµÝÔöDMA µØÖ·»ò²úÉúÖÐ¶Ï
-    AD1CON2bits.BUFM=0;				//=0:	´ÓADCBUF0 ¿ªÊ¼Ìî³ä»º³åÇø£¬ÇÒÔÚÁ¬ÐøÖÐ¶ÏÊ±°´Ë³ÐòÌî³äÃ¿¸öµØÖ·¡¾FIFOÄ£Ê½¡¿												//=1:	´ÓµÚÒ»´Î²úÉúÖÐ¶ÏÊ±´ÓADCBUF0 ¿ªÊ¼Ìî³ä»º³åÇø£¬²úÉúÏÂÒ»´ÎÖÐ¶ÏÊ±´ÓAD1BUF(n/2£©¿ªÊ¼Ìî³ä¡¾·Ö¸î»º³åÄ£Ê½¡¿
-    AD1CON2bits.BUFS=0;				//½öµ± BUFM=1ÓÐÐ§µÄÊ±ºò²ÅÓÐÐ§£¬0 = ADCµ±Ç°ÔÚÌî³ä»º³åÇøµÄ0x0-0x7£¬ÓÃ»§Ó¦ÓÃ³ÌÐòÓ¦·ÃÎÊ0x8-0xF ÖÐµÄÊý¾Ý
+    AD1CON2bits.VCFG=0B000;			//00è¡¨ç¤ºå†…éƒ¨AVDD   01è¡¨ç¤ºå¤–éƒ¨VREF+
+    AD1CON2bits.CSCNA=0;			//=1 æ‰«æè¾“å…¥ åˆ™åªå¯¹CHOSAé€šé“æ‰«æé‡‡é›†  =0 ä¸æ‰«æè¾“å…¥æ‰«æ
+    AD1CON2bits.CHPS=0B00;          //12ä½æ¨¡å¼ä¸‹è¯»ä¸º0
+    AD1CON2bits.SMPI=0B0000;        //=0000 æ¯å®Œæˆ1 æ¬¡é‡‡æ ·/ è½¬æ¢æ“ä½œåŽé€’å¢žDMA åœ°å€æˆ–äº§ç”Ÿä¸­æ–­
+    AD1CON2bits.BUFM=0;				//=0:	ä»ŽADCBUF0 å¼€å§‹å¡«å……ç¼“å†²åŒºï¼Œä¸”åœ¨è¿žç»­ä¸­æ–­æ—¶æŒ‰é¡ºåºå¡«å……æ¯ä¸ªåœ°å€ã€FIFOæ¨¡å¼ã€‘												//=1:	ä»Žç¬¬ä¸€æ¬¡äº§ç”Ÿä¸­æ–­æ—¶ä»ŽADCBUF0 å¼€å§‹å¡«å……ç¼“å†²åŒºï¼Œäº§ç”Ÿä¸‹ä¸€æ¬¡ä¸­æ–­æ—¶ä»ŽAD1BUF(n/2ï¼‰å¼€å§‹å¡«å……ã€åˆ†å‰²ç¼“å†²æ¨¡å¼ã€‘
+    AD1CON2bits.BUFS=0;				//ä»…å½“ BUFM=1æœ‰æ•ˆçš„æ—¶å€™æ‰æœ‰æ•ˆï¼Œ0 = ADCå½“å‰åœ¨å¡«å……ç¼“å†²åŒºçš„0x0-0x7ï¼Œç”¨æˆ·åº”ç”¨ç¨‹åºåº”è®¿é—®0x8-0xF ä¸­çš„æ•°æ®
 
-    AD1CON3bits.ADRC=0;				//1 = ADC ÄÚ²¿RC Ê±ÖÓ 0 = Ê±ÖÓÓÉÏµÍ³Ê±ÖÓ²úÉú
-    AD1CON3bits.ADCS=8;				//ADµÄÊ±ÖÓÖÜÆÚ 1TAD=1Tcy ±£Ö¤TAD>75ns
-    AD1CON3bits.SAMC=8;				//×Ô¶¯²ÉÑùÊ±¼äÎ»
+    AD1CON3bits.ADRC=0;				//1 = ADC å†…éƒ¨RC æ—¶é’Ÿ 0 = æ—¶é’Ÿç”±ç³»ç»Ÿæ—¶é’Ÿäº§ç”Ÿ
+    AD1CON3bits.ADCS=8;				//ADçš„æ—¶é’Ÿå‘¨æœŸ 1TAD=1Tcy ä¿è¯TAD>75ns
+    AD1CON3bits.SAMC=8;				//è‡ªåŠ¨é‡‡æ ·æ—¶é—´ä½
     
-    AD1CON4bits.ADDMAEN=0;          //DMAÊ¹ÄÜ=0 ½ûÖ¹DMA
-    AD1CHS123bits.CH123NA=0;        //ÔÚADC=12Î»Ä£Ê½ÏÂÎÞ·¨ÊµÏÖ£¬¶ÁÎª0
-    AD1CHS123bits.CH123NB=0;        //ÔÚADC=12Î»Ä£Ê½ÏÂÎÞ·¨ÊµÏÖ£¬¶ÁÎª0
-    AD1CHS123bits.CH123SB=0;        //ÔÚADC=12Î»Ä£Ê½ÏÂÎÞ·¨ÊµÏÖ£¬¶ÁÎª0
-    AD1CHS123bits.CH123SA=0;        //ÔÚADC=12Î»Ä£Ê½ÏÂÎÞ·¨ÊµÏÖ£¬¶ÁÎª0   
+    AD1CON4bits.ADDMAEN=0;          //DMAä½¿èƒ½=0 ç¦æ­¢DMA
+    AD1CHS123bits.CH123NA=0;        //åœ¨ADC=12ä½æ¨¡å¼ä¸‹æ— æ³•å®žçŽ°ï¼Œè¯»ä¸º0
+    AD1CHS123bits.CH123NB=0;        //åœ¨ADC=12ä½æ¨¡å¼ä¸‹æ— æ³•å®žçŽ°ï¼Œè¯»ä¸º0
+    AD1CHS123bits.CH123SB=0;        //åœ¨ADC=12ä½æ¨¡å¼ä¸‹æ— æ³•å®žçŽ°ï¼Œè¯»ä¸º0
+    AD1CHS123bits.CH123SA=0;        //åœ¨ADC=12ä½æ¨¡å¼ä¸‹æ— æ³•å®žçŽ°ï¼Œè¯»ä¸º0   
 
-    AD1CHS0bits.CH0NB=0;			//²ÉÑùÍ¨µÀ¸ºÊäÈëÑ¡ÔñÎª=0 AVSS
-    AD1CHS0bits.CH0NA=0;			//²ÉÑùÍ¨µÀ¸ºÊäÈëÑ¡ÔñÎª=0 AVSS
+    AD1CHS0bits.CH0NB=0;			//é‡‡æ ·é€šé“è´Ÿè¾“å…¥é€‰æ‹©ä¸º=0 AVSS
+    AD1CHS0bits.CH0NA=0;			//é‡‡æ ·é€šé“è´Ÿè¾“å…¥é€‰æ‹©ä¸º=0 AVSS
 
-    IPC3bits.AD1IP=5;               //ÖÃA/DµÄÓÅÏÈ¼¶5
-    IFS0bits.AD1IF=0;               //ÇåA/DÖÐ¶Ï±êÖ¾J
+    IPC3bits.AD1IP=5;               //ç½®A/Dçš„ä¼˜å…ˆçº§5
+    IFS0bits.AD1IF=0;               //æ¸…A/Dä¸­æ–­æ ‡å¿—J
 }
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid Set_ADC_Para(uchar Mode,uchar x_TAD)
-¹¦ÄÜÃèÊö: ÉèÖÃADC²ÎÊý
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºx_TAD£º×Ô¶¯Ä£Ê½ÏÂÓÐÐ§,²ÉÑùÖÜÆÚµÄ±¶Êý 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£º
+å‡½æ•°åç§°ï¼švoid Set_ADC_Para(uchar Mode,uchar x_TAD)
+åŠŸèƒ½æè¿°: è®¾ç½®ADCå‚æ•°
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šx_TADï¼šè‡ªåŠ¨æ¨¡å¼ä¸‹æœ‰æ•ˆ,é‡‡æ ·å‘¨æœŸçš„å€æ•° 
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼š
 =======================================================================
- ASAM	=1 ±íÊ¾×Ô¶¯²ÉÑù,²¢×Ô¶¯½«SAMP ÖÃÎª1ÊµÏÖ×Ô¶¯×ª»»¡£ 
- ASAM 	=0 ÓÉSAMP À´¿ØÖÆ²ÉÑù
- ASAM=1 Ê±ÐèÒªÉèÖÃSCCR = 111 ÄÚ²¿¼ÆÊýÆ÷½áÊøºó²ÉÑù²¢Æô¶¯×ª»»¡¾×Ô¶¯×ª»»¡¿
- 					   = 010 Timer3Æô¶¯
- 					   = 001 INT0Æô¶¯
- 					   = 000 ÇåÁãSAMP=0 ½áÊø²ÉÑù²¢Æô¶¯×ª»» ¡¾ÊÖ¶¯Ä£Ê½¡¿
- ´Ëº¯Êý¿ÉÒÔÏÔÊ¾£ºADC_Mode(x,y)					
+ ASAM	=1 è¡¨ç¤ºè‡ªåŠ¨é‡‡æ ·,å¹¶è‡ªåŠ¨å°†SAMP ç½®ä¸º1å®žçŽ°è‡ªåŠ¨è½¬æ¢ã€‚ 
+ ASAM 	=0 ç”±SAMP æ¥æŽ§åˆ¶é‡‡æ ·
+ ASAM=1 æ—¶éœ€è¦è®¾ç½®SCCR = 111 å†…éƒ¨è®¡æ•°å™¨ç»“æŸåŽé‡‡æ ·å¹¶å¯åŠ¨è½¬æ¢ã€è‡ªåŠ¨è½¬æ¢ã€‘
+ 					   = 010 Timer3å¯åŠ¨
+ 					   = 001 INT0å¯åŠ¨
+ 					   = 000 æ¸…é›¶SAMP=0 ç»“æŸé‡‡æ ·å¹¶å¯åŠ¨è½¬æ¢ ã€æ‰‹åŠ¨æ¨¡å¼ã€‘
+ æ­¤å‡½æ•°å¯ä»¥æ˜¾ç¤ºï¼šADC_Mode(x,y)					
 =======================================================================
-AD1CON3bits.ADCS=4;			//ADµÄÊ±ÖÓÖÜÆÚ 1TAD=1Tcy ±£Ö¤TAD>75ns
-AD1CON3bits.SAMC=0b01000;	//×Ô¶¯²ÉÑùÊ±¼äÎ» ½öµ±AD1CON1bits.SSRC=0B111 
-							  Ê±,ÓÐÐ§// 8*TAD ±£Ö¤>750ns 
+AD1CON3bits.ADCS=4;			//ADçš„æ—¶é’Ÿå‘¨æœŸ 1TAD=1Tcy ä¿è¯TAD>75ns
+AD1CON3bits.SAMC=0b01000;	//è‡ªåŠ¨é‡‡æ ·æ—¶é—´ä½ ä»…å½“AD1CON1bits.SSRC=0B111 
+							  æ—¶,æœ‰æ•ˆ// 8*TAD ä¿è¯>750ns 
 TAD		=Tcy*(ADCS+1)/2			
 ADCS	=(2*TAD/Tcy)-1
-Èç¹ûÊÇÏµÍ³Ê±ÖÓ£º FOSC=32M   ÔòTcy=2/32M =62.5ns	 È¡TAD=156ns Ôò
-ADCS	=2*156/62.5-1 =3.922 È¡4
+å¦‚æžœæ˜¯ç³»ç»Ÿæ—¶é’Ÿï¼š FOSC=32M   åˆ™Tcy=2/32M =62.5ns	 å–TAD=156ns åˆ™
+ADCS	=2*156/62.5-1 =3.922 å–4
 
 
-×¢Òâ£º PIC24FÏµÁÐÍê³ÉÒ»´Î²ÉÑùÖÁÉÙÐèÒª12¸öTADÊ±ÖÓ
-×¢ÒâADRC=1 ÊÇADCÄÚ²¿Ê±ÖÓ =ÖÜÆÚÔ¼Îª250nS ËùÒÔÉèÖÃADCS=1¼´¿É
-Èç¹ûADRC=0 ²ÉÓÃÏµÍ³Ê±ÖÓ£¬¸ù¾ÝÉÏÃæµÄ¼ÆËã¹«Ê½ÔòADCSÖÁÉÙ>=4¼´¿É¡£
-·ñÔòÈÝÒ×µ¼ÖÂ²ÉÓÃÊý¾Ý²»×¼È·¡£
+æ³¨æ„ï¼š PIC24Fç³»åˆ—å®Œæˆä¸€æ¬¡é‡‡æ ·è‡³å°‘éœ€è¦12ä¸ªTADæ—¶é’Ÿ
+æ³¨æ„ADRC=1 æ˜¯ADCå†…éƒ¨æ—¶é’Ÿ =å‘¨æœŸçº¦ä¸º250nS æ‰€ä»¥è®¾ç½®ADCS=1å³å¯
+å¦‚æžœADRC=0 é‡‡ç”¨ç³»ç»Ÿæ—¶é’Ÿï¼Œæ ¹æ®ä¸Šé¢çš„è®¡ç®—å…¬å¼åˆ™ADCSè‡³å°‘>=4å³å¯ã€‚
+å¦åˆ™å®¹æ˜“å¯¼è‡´é‡‡ç”¨æ•°æ®ä¸å‡†ç¡®ã€‚
 x_TAD*ADCS>=*750ns ==> x_TAD 
 =======================================================================
 ********************************************************/ 
@@ -212,47 +212,47 @@ void Set_ADC_Para(uchar Mode,uchar x_TAD)
 {
     if (Mode==ADC_Auto)
     {
-        AD1CON1bits.ASAM=1;                                     //×Ô¶¯²ÉÑù
-        AD1CON1bits.SSRC=0B111;                                 //²ÉÑù½áÊøºó×Ô¶¯×ª»»
+        AD1CON1bits.ASAM=1;                                     //è‡ªåŠ¨é‡‡æ ·
+        AD1CON1bits.SSRC=0B111;                                 //é‡‡æ ·ç»“æŸåŽè‡ªåŠ¨è½¬æ¢
 
-        AD1CON3bits.ADRC=0;                                     //=0ÏµÍ³Ê±ÖÓÌá¹© =1ADCÄÚ²¿Ê±ÖÓ Ô¼Îª250ns
-        AD1CON3bits.SAMC=x_TAD;                                 //×Ô¶¯²ÉÑùÊ±¼äÎ» ½öµ±AD1CON1bits.SSRC=0B111Ê±,ÓÐÐ§// 8*TAD ±£Ö¤>750ns
+        AD1CON3bits.ADRC=0;                                     //=0ç³»ç»Ÿæ—¶é’Ÿæä¾› =1ADCå†…éƒ¨æ—¶é’Ÿ çº¦ä¸º250ns
+        AD1CON3bits.SAMC=x_TAD;                                 //è‡ªåŠ¨é‡‡æ ·æ—¶é—´ä½ ä»…å½“AD1CON1bits.SSRC=0B111æ—¶,æœ‰æ•ˆ// 8*TAD ä¿è¯>750ns
     }
     else
     {
-        AD1CON1bits.SSRC=0;					                    //Èí¼þÇåÁãSAMP ½áÊø²ÉÑù²¢¿ªÊ¼×ª»»
-        AD1CON1bits.ASAM=0;				                        //²ÉÑùÍê³Éºó=1×Ô¶¯Á¢¼´¿ªÊ¼
+        AD1CON1bits.SSRC=0;					                    //è½¯ä»¶æ¸…é›¶SAMP ç»“æŸé‡‡æ ·å¹¶å¼€å§‹è½¬æ¢
+        AD1CON1bits.ASAM=0;				                        //é‡‡æ ·å®ŒæˆåŽ=1è‡ªåŠ¨ç«‹å³å¼€å§‹
     }
 }	
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºuint Read_WZAD(uchar Times)
-¹¦ÄÜÃèÊö: ¶ÁÈ¡Î»ÖÃAD
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºÎÞ 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
+å‡½æ•°åç§°ï¼šuint Read_WZAD(uchar Times)
+åŠŸèƒ½æè¿°: è¯»å–ä½ç½®AD
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šæ—  
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
 ********************************************************/ 	
 void Set_ADC_Channel()
 {
-    AD1CON2bits.SMPI=0;					                     	//=²É¼¯[SMPI+1]´Î²ÅÖÐ¶ÏÒ»´Î ¶ÁÁ½´ÎWZAD ,KZAD
-    AD1CON2bits.ALTS=0;						                    //=0:	Ê¼ÖÕÊ¹ÓÃ²ÉÑùAÑ¡ÔñµÄÍ¨µÀÊäÈë¡£
+    AD1CON2bits.SMPI=0;					                     	//=é‡‡é›†[SMPI+1]æ¬¡æ‰ä¸­æ–­ä¸€æ¬¡ è¯»ä¸¤æ¬¡WZAD ,KZAD
+    AD1CON2bits.ALTS=0;						                    //=0:	å§‹ç»ˆä½¿ç”¨é‡‡æ ·Aé€‰æ‹©çš„é€šé“è¾“å…¥ã€‚
 
-    AD1CHS0bits.CH0SA=WZAD_Channel;                             //AN0 Ñ¡Ôñ ¡¾3210¡¿ËÄÎ»Ñ¡ÔñADµÄÍ¨µÀ
+    AD1CHS0bits.CH0SA=WZAD_Channel;                             //AN0 é€‰æ‹© ã€3210ã€‘å››ä½é€‰æ‹©ADçš„é€šé“
 } 
 
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid ADC_Enable(uchar IsON)
-¹¦ÄÜÃèÊö: ÊÇ·ñÊ¹ÄÜADC
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºÎÞ 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
+å‡½æ•°åç§°ï¼švoid ADC_Enable(uchar IsON)
+åŠŸèƒ½æè¿°: æ˜¯å¦ä½¿èƒ½ADC
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šæ—  
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
 ********************************************************/ 	
 void ADC_Enable(uchar IsON)
 {
@@ -260,10 +260,10 @@ void ADC_Enable(uchar IsON)
 } 
 
 /***************************************************
-º¯ÊýÃû³Æ£ºuint CountAvg_Advalue(uint *ADV,uchar Times)
-Èë¿Ú²ÎÊý£ºÎÞ
-³ö¿Ú²ÎÊý£ºÎÞ
-±¸×¢£ºÈ¥µôÒ»¸ö×î´óÖµ£¬Ò»¸ö×îÐ¡Öµ£¬È»ºóÇóÆ½¾ùÖµ
+å‡½æ•°åç§°ï¼šuint CountAvg_Advalue(uint *ADV,uchar Times)
+å…¥å£å‚æ•°ï¼šæ— 
+å‡ºå£å‚æ•°ï¼šæ— 
+å¤‡æ³¨ï¼šåŽ»æŽ‰ä¸€ä¸ªæœ€å¤§å€¼ï¼Œä¸€ä¸ªæœ€å°å€¼ï¼Œç„¶åŽæ±‚å¹³å‡å€¼
 **************************************************/
 uint CountAvg_Advalue(uint *ADV,uchar Times)
 {
@@ -273,35 +273,35 @@ uint CountAvg_Advalue(uint *ADV,uchar Times)
 	Max=Min;
 	for(i=0;i<Times;i++) 
 	{
-		 if(ADV[i]<Min) Min=ADV[i];						//Í³¼Æ×îÐ¡Öµ
-		 if(ADV[i]>Max) Max=ADV[i];						//Í³¼Æ×î´óÖµ
+		 if(ADV[i]<Min) Min=ADV[i];						//ç»Ÿè®¡æœ€å°å€¼
+		 if(ADV[i]>Max) Max=ADV[i];						//ç»Ÿè®¡æœ€å¤§å€¼
 	}
 	uint CountAll=0;
 	uint Avg=0;
-	for(i=0;i<Times;i++) CountAll=CountAll+ADV[i]; 		//Í³¼Æ×ÜÊý
-	CountAll=CountAll-Min-Max;							//È¥µô×î´óÖµ£¬È¥µô×îÐ¡Öµ
-	Avg=CountAll/(Times-2);								//ÇóÆ½¾ùÖµ
+	for(i=0;i<Times;i++) CountAll=CountAll+ADV[i]; 		//ç»Ÿè®¡æ€»æ•°
+	CountAll=CountAll-Min-Max;							//åŽ»æŽ‰æœ€å¤§å€¼ï¼ŒåŽ»æŽ‰æœ€å°å€¼
+	Avg=CountAll/(Times-2);								//æ±‚å¹³å‡å€¼
 	return Avg;
 }
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid Read_Auto_WZ(uchar Times)
-¹¦ÄÜÃèÊö: ¶ÁÈ¡Íâ²¿Î»ÖÃAD
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºÎÞ 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
+å‡½æ•°åç§°ï¼švoid Read_Auto_WZ(uchar Times)
+åŠŸèƒ½æè¿°: è¯»å–å¤–éƒ¨ä½ç½®AD
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šæ—  
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
 ********************************************************/ 
 void Read_Auto_WZ(uchar Times)
 {
     uchar i;
-    uint WZ[Times]; 				//Í³¼Æ10´ÎµÄÊýÖµµÄÆ½¾ùÖµ
+    uint WZ[Times]; 				//ç»Ÿè®¡10æ¬¡çš„æ•°å€¼çš„å¹³å‡å€¼
     for (i=0;i<Times;i++)
     {
         while(!AD1CON1bits.DONE) ClrWdt();
         AD1CON1bits.DONE=0;
-        WZ[i]=ADC1BUF0;					//±£´æAD×ª»»½á¹û
+        WZ[i]=ADC1BUF0;					//ä¿å­˜ADè½¬æ¢ç»“æžœ
     }
     V_Set=CountAvg_Advalue(WZ,Times);
 }
@@ -311,7 +311,7 @@ void Read_Auto_WZ(uchar Times)
 
 
 /****************************************
-1: ¶¨ÒåÊ±ÖÓÆµÂÊ£º
+1: å®šä¹‰æ—¶é’Ÿé¢‘çŽ‡ï¼š
 	Fosc=FIN*M/(N1*N2)
 	M=PLLFBD;
 	N1=
@@ -320,57 +320,57 @@ ulong 	Fosc;
 ulong 	Fcy;
 ulong	FIN;
 uchar 	M;
-uchar   N1,N2;             //Fin ·ÖÆµÏµÊý
+uchar   N1,N2;             //Fin åˆ†é¢‘ç³»æ•°
 uint    CTTimes;
 /****************************************************** 
-º¯ÊýÃû³Æ£ºInit_IO()
-¹¦ÄÜÃèÊö: ³õÊ¼»¯IO¶Ë¿Ú
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£º
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
-2013-11-04 °´ÕÕTC-02-BX-AC95-265V¿ØÖÆÔ­ÀíÍ¼¸ü¸Ä
+å‡½æ•°åç§°ï¼šInit_IO()
+åŠŸèƒ½æè¿°: åˆå§‹åŒ–IOç«¯å£
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼š
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
+2013-11-04 æŒ‰ç…§TC-02-BX-AC95-265VæŽ§åˆ¶åŽŸç†å›¾æ›´æ”¹
 *******************************************************/ 
 void Init_IO()
 {
-	TRISA=0b0000000000010011;       //RA2×÷ÎªPDIN_OUTÊä³ö
-	TRISB=0b0000111000000111;       //K1MK2 K3Ã»ÓÐÊ¹ÓÃ
-	ODCA=0x0000;					//=0Õý³£Êä³ö£¬=1¿ªÂ©Êä³ö
-	ODCB=0x0000;					//=0Õý³£Êä³ö£¬=1¿ªÂ©Êä³ö
+	TRISA=0b0000000000010011;       //RA2ä½œä¸ºPDIN_OUTè¾“å‡º
+	TRISB=0b0000111000000111;       //K1MK2 K3æ²¡æœ‰ä½¿ç”¨
+	ODCA=0x0000;					//=0æ­£å¸¸è¾“å‡ºï¼Œ=1å¼€æ¼è¾“å‡º
+	ODCB=0x0000;					//=0æ­£å¸¸è¾“å‡ºï¼Œ=1å¼€æ¼è¾“å‡º
 	LATB=0xFFFF;
 	LATA=0xFFFF;
 }
 
 /****************************************************** 
-º¯ÊýÃû³Æ£ºvoid PRINRXX_Init()
-¹¦ÄÜÃèÊö: ³õÊ¼»¯ÌØÊâ¸´ÓÃµÄIO¶Ë¿Ú
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£º
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£º
+å‡½æ•°åç§°ï¼švoid PRINRXX_Init()
+åŠŸèƒ½æè¿°: åˆå§‹åŒ–ç‰¹æ®Šå¤ç”¨çš„IOç«¯å£
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼š
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼š
 *******************************************************/ 
 void PRINRXX_Init()
 {
     __builtin_write_OSCCONL(OSCCON & 0xbf); //clear the bit 6 of OSCCONL ==> Unlock Registers
      RPOR4bits.RP42R = 16;  
-    //_U1RXR=20;                                          //U1RX Á´½Óµ½RP20
-    //_RP38R=1;                                           //U1TXÁ¬½Óµ½RP38
+    //_U1RXR=20;                                          //U1RX é“¾æŽ¥åˆ°RP20
+    //_RP38R=1;                                           //U1TXè¿žæŽ¥åˆ°RP38
     
-    //_U2RXR=34;                                          //U2RX ÊäÈëÒý½ÅRPI34
-    //_RP35R=3;                                           //U2TXÁ¬½Óµ½RP35
-    //_RP36R=16;                                          //OC1Á¬½Óµ½RP36
+    //_U2RXR=34;                                          //U2RX è¾“å…¥å¼•è„šRPI34
+    //_RP35R=3;                                           //U2TXè¿žæŽ¥åˆ°RP35
+    //_RP36R=16;                                          //OC1è¿žæŽ¥åˆ°RP36
     __builtin_write_OSCCONL(OSCCON | 0x40); //set the bit 6 of OSCCONL to Lock Registers  
 }
 /**************************************************
-º¯ÊýÃû³Æ£ºDelayMs(uint x)
-º¯Êý¹¦ÄÜ£ºÑÓÊ±º¯Êý
-Èë¿Ú²ÎÊý£ºx	
-³ö¿Ú²ÎÊý£ºÎÞ
-±¸×¢£ºi<89 ºÁÃëÑÓÊ± ¾«¶È0.5%	x=1Ê±ÑÓÊ±1ms	4M¾§Õñ
+å‡½æ•°åç§°ï¼šDelayMs(uint x)
+å‡½æ•°åŠŸèƒ½ï¼šå»¶æ—¶å‡½æ•°
+å…¥å£å‚æ•°ï¼šx	
+å‡ºå£å‚æ•°ï¼šæ— 
+å¤‡æ³¨ï¼ši<89 æ¯«ç§’å»¶æ—¶ ç²¾åº¦0.5%	x=1æ—¶å»¶æ—¶1ms	4Mæ™¶æŒ¯
       i<89x4                                    16M 
 **************************************************/
 void DelayMs(uint x)	
@@ -384,23 +384,23 @@ void DelayMs(uint x)
  }
 
 /****************************************************** 
-º¯ÊýÃû³Æ£ºvoid Init_SYS()
-¹¦ÄÜÃèÊö: ³õÊ¼»¯ÏµÍ³²ÎÊý
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£º
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
+å‡½æ•°åç§°ï¼švoid Init_SYS()
+åŠŸèƒ½æè¿°: åˆå§‹åŒ–ç³»ç»Ÿå‚æ•°
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼š
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
 *******************************************************/ 
 void Init_SYS()
 {	
-	OSCTUNbits.TUN=0B111111;					   //Ä¬ÈÏ7.37 *(1-0.047%)
-	CLKDIVbits.PLLPRE=0;							//Ä¬ÈÏ0	ÊäÈë/2 =00001 = ÊäÈë/3 ---11111 = ÊäÈë/33
-	CLKDIVbits.DOZEN=0;								//0 = ´¦ÀíÆ÷Ê±ÖÓ/ ÍâÉèÊ±ÖÓÆµÂÊ±ÈÇ¿ÖÆÎª1:1
-	CLKDIVbits.FRCDIV=0;							//0 = FRC 1 ·ÖÆµ£¨Ä¬ÈÏ£©001 = FRC 2 ·ÖÆµ010 = FRC 4 ·ÖÆµXX
-	CLKDIVbits.PLLPOST=0;							//000 = Êä³ö/2 01 = Êä³ö/4 £¨Ä¬ÈÏ£©10 = ±£Áô 11 = Êä³ö/8
-	PLLFBDbits.PLLDIV=61;                           //M=67,ÕâÑùFosc=7370000*65/4=119.7625MHz
+	OSCTUNbits.TUN=0B111111;					   //é»˜è®¤7.37 *(1-0.047%)
+	CLKDIVbits.PLLPRE=0;							//é»˜è®¤0	è¾“å…¥/2 =00001 = è¾“å…¥/3 ---11111 = è¾“å…¥/33
+	CLKDIVbits.DOZEN=0;								//0 = å¤„ç†å™¨æ—¶é’Ÿ/ å¤–è®¾æ—¶é’Ÿé¢‘çŽ‡æ¯”å¼ºåˆ¶ä¸º1:1
+	CLKDIVbits.FRCDIV=0;							//0 = FRC 1 åˆ†é¢‘ï¼ˆé»˜è®¤ï¼‰001 = FRC 2 åˆ†é¢‘010 = FRC 4 åˆ†é¢‘XX
+	CLKDIVbits.PLLPOST=0;							//000 = è¾“å‡º/2 01 = è¾“å‡º/4 ï¼ˆé»˜è®¤ï¼‰10 = ä¿ç•™ 11 = è¾“å‡º/8
+	PLLFBDbits.PLLDIV=61;                           //M=67,è¿™æ ·Fosc=7370000*65/4=119.7625MHz
     // Initiate Clock Switch to FRC oscillator with PLL (NOSC=0b001)
     __builtin_write_OSCCONH(0x01);
     __builtin_write_OSCCONL(0x01);
@@ -409,81 +409,81 @@ void Init_SYS()
     // Wait for PLL to lock
     while (OSCCONbits.LOCK!= 1) {};
     
-    N1=CLKDIVbits.PLLPRE+2;                                           //Fin·ÖÆµÏµÊý
-    N2=2*(CLKDIVbits.PLLPOST+1);                                      //Fin·ÖÆµÏµÊý
+    N1=CLKDIVbits.PLLPRE+2;                                           //Finåˆ†é¢‘ç³»æ•°
+    N2=2*(CLKDIVbits.PLLPOST+1);                                      //Finåˆ†é¢‘ç³»æ•°
 	M=PLLFBDbits.PLLDIV+2;
-	FIN=7366536;                                  //ÊäÈëÆµÂÊÎª7.37M
-    Fosc=FIN*M/(N1*N2);                                 //VCOÊä³öÆµÂÊ
-    Fcy=Fosc/2;                                         //Ê±ÖÓÆµÂÊ	59.88MHz   TP=16.7ns
+	FIN=7366536;                                  //è¾“å…¥é¢‘çŽ‡ä¸º7.37M
+    Fosc=FIN*M/(N1*N2);                                 //VCOè¾“å‡ºé¢‘çŽ‡
+    Fcy=Fosc/2;                                         //æ—¶é’Ÿé¢‘çŽ‡	59.88MHz   TP=16.7ns
     CTTimes=(uint)(Fcy/MHZ(4));
 	DelayMs(50);
 }
 
 
 /***=======================================================
-[1]==>>±äÁ¿¶¨ÒåÇø<<==
+[1]==>>å˜é‡å®šä¹‰åŒº<<==
 ==========================================================**/
-#define TxCKPS_1		1				//·ÖÆµ±ÈÎª1
-#define TxCKPS_8		8				//·ÖÆµ±ÈÎª8
-#define TxCKPS_64		64				//·ÖÆµ±ÈÎª64
-#define TxCKPS_256		256				//·ÖÆµ±ÈÎª256
+#define TxCKPS_1		1				//åˆ†é¢‘æ¯”ä¸º1
+#define TxCKPS_8		8				//åˆ†é¢‘æ¯”ä¸º8
+#define TxCKPS_64		64				//åˆ†é¢‘æ¯”ä¸º64
+#define TxCKPS_256		256				//åˆ†é¢‘æ¯”ä¸º256
 
-#define T1_us			20000			//¶¨ÒåT1 Îª20000uS
-#define T2_us			500				//¶¨ÒåT2 Îª500uS
-#define T3_us			500				//¶¨ÒåT3 Îª200uS  Õâ¸öÖµ²»ÄÜÌ«Ð¡£¬Ì«Ð¡½«ÎÞ·¨Ìø³öÖÐ¶Ï£¬ÒòÎªÕâÀïÃæÐèÒª¶ÁÈ¡AD	¼°Æä¼ÆËã½Ç¶È£¬ËùÒÔÐèÒªÊ±¼ä½Ï³¤
-#define T5_us			1000			//¶¨ÒåT5 Îª2000uS
+#define T1_us			20000			//å®šä¹‰T1 ä¸º20000uS
+#define T2_us			500				//å®šä¹‰T2 ä¸º500uS
+#define T3_us			500				//å®šä¹‰T3 ä¸º200uS  è¿™ä¸ªå€¼ä¸èƒ½å¤ªå°ï¼Œå¤ªå°å°†æ— æ³•è·³å‡ºä¸­æ–­ï¼Œå› ä¸ºè¿™é‡Œé¢éœ€è¦è¯»å–AD	åŠå…¶è®¡ç®—è§’åº¦ï¼Œæ‰€ä»¥éœ€è¦æ—¶é—´è¾ƒé•¿
+#define T5_us			1000			//å®šä¹‰T5 ä¸º2000uS
 
-#define	Tcytimes	Fosc/MHZ(4)             //ËùÒÔ¶¨Ê±Ê±¼äÓ¦¸Ã/2ÌØ±ð×¢Òâ ¶ø²»ÊÇÖÜÆÚ£¬ËùÒÔÓ¦¸ÃÊÇFOSC/4
+#define	Tcytimes	Fosc/MHZ(4)             //æ‰€ä»¥å®šæ—¶æ—¶é—´åº”è¯¥/2ç‰¹åˆ«æ³¨æ„ è€Œä¸æ˜¯å‘¨æœŸï¼Œæ‰€ä»¥åº”è¯¥æ˜¯FOSC/4
 
 
 uint    T3Count;
-uint	TxCKPS[5]={1,1,1,1,1};										//±£´æ¶¨Ê±Æ÷µÄ
+uint	TxCKPS[5]={1,1,1,1,1};										//ä¿å­˜å®šæ—¶å™¨çš„
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid Init_Timer1(uint TxCKPS,ulong Xtal_Freq)
-¹¦ÄÜÃèÊö: ³õÊ¼»¯Timer1
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºÎÞ 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
+å‡½æ•°åç§°ï¼švoid Init_Timer1(uint TxCKPS,ulong Xtal_Freq)
+åŠŸèƒ½æè¿°: åˆå§‹åŒ–Timer1
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šæ—  
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
 ********************************************************/ 
 void Init_Timer1(uint Tx_CKPS)
 {
-	TxCKPS[0]=Tx_CKPS;										//±£´æµ±Ç°·ÖÆµ±È
+	TxCKPS[0]=Tx_CKPS;										//ä¿å­˜å½“å‰åˆ†é¢‘æ¯”
     
-	T1CONbits.TON=0;										//ÆôÍ£¶¨Ê±Æ÷
-	T1CONbits.TSIDL=0;										//¿ÕÏÐÄ£Ê½ÊÇ·ñÊ¡µç
-	T1CONbits.TCS=0B00;                                     //À©Õ¹ÊÇÊ±ÖÓ£º00 ¸¨ÖúÊ±ÖÓ 01 T1CKÊ±ÖÓ 10 LPRCÊ±ÖÓ 11±£Áô
+	T1CONbits.TON=0;										//å¯åœå®šæ—¶å™¨
+	T1CONbits.TSIDL=0;										//ç©ºé—²æ¨¡å¼æ˜¯å¦çœç”µ
+	T1CONbits.TCS=0B00;                                     //æ‰©å±•æ˜¯æ—¶é’Ÿï¼š00 è¾…åŠ©æ—¶é’Ÿ 01 T1CKæ—¶é’Ÿ 10 LPRCæ—¶é’Ÿ 11ä¿ç•™
     T1CONbits.TGATE=1;
     
 
-	if(Tx_CKPS==TxCKPS_1)			T1CONbits.TCKPS=0B00;	//Ñ¡Ôñ·ÖÆµÏµÊý ¡¾00¡¿==>1:1 
-	else if(Tx_CKPS==TxCKPS_8)		T1CONbits.TCKPS=0B01;	//Ñ¡Ôñ·ÖÆµÏµÊý ¡¾01¡¿==>1:8
-	else if(Tx_CKPS==TxCKPS_64)		T1CONbits.TCKPS=0B10;	//Ñ¡Ôñ·ÖÆµÏµÊý ¡¾10¡¿==>1:64
-	else if(Tx_CKPS==TxCKPS_256)	T1CONbits.TCKPS=0B11;	//Ñ¡Ôñ·ÖÆµÏµÊý ¡¾11¡¿==>1:256
+	if(Tx_CKPS==TxCKPS_1)			T1CONbits.TCKPS=0B00;	//é€‰æ‹©åˆ†é¢‘ç³»æ•° ã€00ã€‘==>1:1 
+	else if(Tx_CKPS==TxCKPS_8)		T1CONbits.TCKPS=0B01;	//é€‰æ‹©åˆ†é¢‘ç³»æ•° ã€01ã€‘==>1:8
+	else if(Tx_CKPS==TxCKPS_64)		T1CONbits.TCKPS=0B10;	//é€‰æ‹©åˆ†é¢‘ç³»æ•° ã€10ã€‘==>1:64
+	else if(Tx_CKPS==TxCKPS_256)	T1CONbits.TCKPS=0B11;	//é€‰æ‹©åˆ†é¢‘ç³»æ•° ã€11ã€‘==>1:256
 				
-	T1CONbits.TCS=0;										//=¡¾0¡¿Ñ¡ÔñÊ±ÖÓÔ´£ºFOSC/2Ê±ÖÓ	=¡¾1¡¿ ÓÐT1ECS¾ö¶¨
-	IPC0bits.T1IP=3;										//ÖÐ¶ÏÓÅÏÈ¼¶33
+	T1CONbits.TCS=0;										//=ã€0ã€‘é€‰æ‹©æ—¶é’Ÿæºï¼šFOSC/2æ—¶é’Ÿ	=ã€1ã€‘ æœ‰T1ECSå†³å®š
+	IPC0bits.T1IP=3;										//ä¸­æ–­ä¼˜å…ˆçº§33
 	TMR1=0;	
-	//IFS0bits.T1IF=0;										//Çå³ýÖÐ¶Ï±êÖ¾Î»
-	//IEC0bits.T1IE=1;										//ÔÊÐíT1ÖÐ¶Ï
+	//IFS0bits.T1IF=0;										//æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½
+	//IEC0bits.T1IE=1;										//å…è®¸T1ä¸­æ–­
 }	 
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid Set_TMR1(uint X_us£¬uchar IsOpen)
-¹¦ÄÜÃèÊö: ÉèÖÃTime1ÑÓÊ±Öµ
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºX_us: ¶¨Ê±Ê±¼äµ¥Î»uS£¬ IsOpen£º=True±íÊ¾ÐèÒª´ò¿ª 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£º×¢Òâ£ºÈç¹û²ÅÓÃ1·ÖÆµ£¬×î´óÖ»ÄÜÑÓÊ±10ms£¬Èç¹ûÊÇ8·ÖÆµ£¬×î´óÖ»ÄÜµ½80ms £¬64 ×î´óÄÜµ½640ms
+å‡½æ•°åç§°ï¼švoid Set_TMR1(uint X_usï¼Œuchar IsOpen)
+åŠŸèƒ½æè¿°: è®¾ç½®Time1å»¶æ—¶å€¼
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šX_us: å®šæ—¶æ—¶é—´å•ä½uSï¼Œ IsOpenï¼š=Trueè¡¨ç¤ºéœ€è¦æ‰“å¼€ 
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šæ³¨æ„ï¼šå¦‚æžœæ‰ç”¨1åˆ†é¢‘ï¼Œæœ€å¤§åªèƒ½å»¶æ—¶10msï¼Œå¦‚æžœæ˜¯8åˆ†é¢‘ï¼Œæœ€å¤§åªèƒ½åˆ°80ms ï¼Œ64 æœ€å¤§èƒ½åˆ°640ms
 ********************************************************/ 
 void Set_Timer1(uint X_us,uchar IsOpen)
 {
-	IFS0bits.T1IF=0;									//Çå³ý±êÖ¾Î»
+	IFS0bits.T1IF=0;									//æ¸…é™¤æ ‡å¿—ä½
 	ulong Tmp;
 	Tmp=(ulong)(X_us)*58 ;
 	PR1=Tmp/TxCKPS[0]-1;					
@@ -491,75 +491,75 @@ void Set_Timer1(uint X_us,uchar IsOpen)
 }	
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid TMR1_Enable(uchar IsOpen)
-¹¦ÄÜÃèÊö: Timer1 Ê¹ÄÜ¿ØÖÆ
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºIsOpen£º=True±íÊ¾ÐèÒª´ò¿ª =False ±íÊ¾¹Ø±Õ
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
+å‡½æ•°åç§°ï¼švoid TMR1_Enable(uchar IsOpen)
+åŠŸèƒ½æè¿°: Timer1 ä½¿èƒ½æŽ§åˆ¶
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šIsOpenï¼š=Trueè¡¨ç¤ºéœ€è¦æ‰“å¼€ =False è¡¨ç¤ºå…³é—­
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
 ********************************************************/ 
 void Timer1_Enable(uchar IsOpen)
 {
-	//IFS0bits.T1IF=0;									//Çå³ý±êÖ¾Î»		
+	//IFS0bits.T1IF=0;									//æ¸…é™¤æ ‡å¿—ä½		
 	T1CONbits.TON=IsOpen;
 }
 
    /****&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
- 			¶¨Ê±Æ÷2ÉèÖÃ====¡¾¿ªÊ¼¡¿
+ 			å®šæ—¶å™¨2è®¾ç½®====ã€å¼€å§‹ã€‘
  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&****/
  /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid Init_Timer2(uint TxCKPS,ulong Xtal_Freq)
-¹¦ÄÜÃèÊö: ³õÊ¼»¯Timer2
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºÎÞ 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
+å‡½æ•°åç§°ï¼švoid Init_Timer2(uint TxCKPS,ulong Xtal_Freq)
+åŠŸèƒ½æè¿°: åˆå§‹åŒ–Timer2
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šæ—  
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
 ********************************************************/ 
 void Init_Timer2(uint Tx_CKPS)
 {
-	TxCKPS[1]=Tx_CKPS;									//±£´æµ±Ç°·ÖÆµ±È
+	TxCKPS[1]=Tx_CKPS;									//ä¿å­˜å½“å‰åˆ†é¢‘æ¯”
 	
-	T2CONbits.TON=0;									//ÆôÍ£¶¨Ê±Æ÷
-	T2CONbits.TSIDL=0;									//¿ÕÏÐÄ£Ê½ÊÇ·ñÊ¡µç
-	T2CONbits.T32=0;									//=0µ¥¶À×÷Îª16Î»¶¨Ê±Æ÷
-														//=1ÔòÓëTIMER3×éºÏ³É32Î»¶¨Ê±Æ÷
+	T2CONbits.TON=0;									//å¯åœå®šæ—¶å™¨
+	T2CONbits.TSIDL=0;									//ç©ºé—²æ¨¡å¼æ˜¯å¦çœç”µ
+	T2CONbits.T32=0;									//=0å•ç‹¬ä½œä¸º16ä½å®šæ—¶å™¨
+														//=1åˆ™ä¸ŽTIMER3ç»„åˆæˆ32ä½å®šæ—¶å™¨
 														
-	if(Tx_CKPS==TxCKPS_1)			T2CONbits.TCKPS=0B00;	//Ñ¡Ôñ·ÖÆµÏµÊý ¡¾00¡¿==>1:1 
-	else if(Tx_CKPS==TxCKPS_8)		T2CONbits.TCKPS=0B01;	//Ñ¡Ôñ·ÖÆµÏµÊý ¡¾01¡¿==>1:8
-	else if(Tx_CKPS==TxCKPS_64)		T2CONbits.TCKPS=0B10;	//Ñ¡Ôñ·ÖÆµÏµÊý ¡¾10¡¿==>1:64
-	else if(Tx_CKPS==TxCKPS_256)	T2CONbits.TCKPS=0B11;	//Ñ¡Ôñ·ÖÆµÏµÊý ¡¾11¡¿==>1:256
+	if(Tx_CKPS==TxCKPS_1)			T2CONbits.TCKPS=0B00;	//é€‰æ‹©åˆ†é¢‘ç³»æ•° ã€00ã€‘==>1:1 
+	else if(Tx_CKPS==TxCKPS_8)		T2CONbits.TCKPS=0B01;	//é€‰æ‹©åˆ†é¢‘ç³»æ•° ã€01ã€‘==>1:8
+	else if(Tx_CKPS==TxCKPS_64)		T2CONbits.TCKPS=0B10;	//é€‰æ‹©åˆ†é¢‘ç³»æ•° ã€10ã€‘==>1:64
+	else if(Tx_CKPS==TxCKPS_256)	T2CONbits.TCKPS=0B11;	//é€‰æ‹©åˆ†é¢‘ç³»æ•° ã€11ã€‘==>1:256
 				
-	T2CONbits.TCS=0;									//=¡¾0¡¿Ñ¡ÔñÊ±ÖÓÔ´£ºFOSC/2Ê±ÖÓ	=¡¾1¡¿ ÓÐT1ECS¾ö¶¨
-	IPC1bits.T2IP=4;									//ÖÐ¶ÏÓÅÏÈ¼¶4 ×î¸ßÎ»7¼¶
+	T2CONbits.TCS=0;									//=ã€0ã€‘é€‰æ‹©æ—¶é’Ÿæºï¼šFOSC/2æ—¶é’Ÿ	=ã€1ã€‘ æœ‰T1ECSå†³å®š
+	IPC1bits.T2IP=4;									//ä¸­æ–­ä¼˜å…ˆçº§4 æœ€é«˜ä½7çº§
 	TMR2=0;	
-	//IFS0bits.T2IF=0;									//Çå³ýÖÐ¶Ï±êÖ¾Î»
-	//IEC0bits.T2IE=True;									//ÔÊÐíT2ÖÐ¶Ï
+	//IFS0bits.T2IF=0;									//æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½
+	//IEC0bits.T2IE=True;									//å…è®¸T2ä¸­æ–­
 }	 
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid Setup_Timer2(uint X_us£¬uchar IsOpen)
-¹¦ÄÜÃèÊö: ÉèÖÃTime2ÑÓÊ±Öµ
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºX_us: ¶¨Ê±Ê±¼äµ¥Î»uS£¬ IsOpen£º=True±íÊ¾ÐèÒª´ò¿ª 
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
-		¶¨Ê±Ê±¼ä¼ÆËã·½·¨£º
-		Ö¸ÁîÖÜÆÚTcy ,Ô¤·ÖÆµÏµÊýN £¬ÖÜÆÚ¼Ä´æÆ÷PRX Ëù¸³ÖµÎªX £¬Ôò¶¨Ê±Ê±¼äÎª
-		T¶¨Ê±=Tcy*N(X+1) 
-		Fcy=32MHZ/2M=16 ,T¶¨Ê±=1ms=1000us
+å‡½æ•°åç§°ï¼švoid Setup_Timer2(uint X_usï¼Œuchar IsOpen)
+åŠŸèƒ½æè¿°: è®¾ç½®Time2å»¶æ—¶å€¼
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šX_us: å®šæ—¶æ—¶é—´å•ä½uSï¼Œ IsOpenï¼š=Trueè¡¨ç¤ºéœ€è¦æ‰“å¼€ 
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
+		å®šæ—¶æ—¶é—´è®¡ç®—æ–¹æ³•ï¼š
+		æŒ‡ä»¤å‘¨æœŸTcy ,é¢„åˆ†é¢‘ç³»æ•°N ï¼Œå‘¨æœŸå¯„å­˜å™¨PRX æ‰€èµ‹å€¼ä¸ºX ï¼Œåˆ™å®šæ—¶æ—¶é—´ä¸º
+		Tå®šæ—¶=Tcy*N(X+1) 
+		Fcy=32MHZ/2M=16 ,Tå®šæ—¶=1ms=1000us
 		X=(1000*Fcy/N)-1 	
 			
-		ËùÒÔ¶¨Ê±Öµxms
+		æ‰€ä»¥å®šæ—¶å€¼xms
 ********************************************************/ 
 void Set_Timer2(uint X_us,uchar IsOpen)
 {
-	IFS0bits.T2IF=0;									//Çå³ý±êÖ¾Î»
+	IFS0bits.T2IF=0;									//æ¸…é™¤æ ‡å¿—ä½
 	ulong Tmp;
 	Tmp=(X_us+40)*Fcy;
 	Tmp=Tmp/TxCKPS[1]-1;
@@ -568,23 +568,23 @@ void Set_Timer2(uint X_us,uchar IsOpen)
 }	
 
 /******************************************************** 
-º¯ÊýÃû³Æ£ºvoid TMR2_Enable(uchar IsOpen)
-¹¦ÄÜÃèÊö: Timer2 Ê¹ÄÜ¿ØÖÆ
-È«¾Ö±äÁ¿£ºÎÞ 
-²ÎÊýËµÃ÷£ºIsOpen£º=True±íÊ¾ÐèÒª´ò¿ª =False ±íÊ¾¹Ø±Õ
-·µ»ØËµÃ÷£ºÎÞ 
-Éè ¼Æ ÈË£ºFEIHONG_KLD
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
+å‡½æ•°åç§°ï¼švoid TMR2_Enable(uchar IsOpen)
+åŠŸèƒ½æè¿°: Timer2 ä½¿èƒ½æŽ§åˆ¶
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜Žï¼šIsOpenï¼š=Trueè¡¨ç¤ºéœ€è¦æ‰“å¼€ =False è¡¨ç¤ºå…³é—­
+è¿”å›žè¯´æ˜Žï¼šæ—  
+è®¾ è®¡ äººï¼šFEIHONG_KLD
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜Žï¼šwww.kld.cn
 ********************************************************/ 
 void Timer2_Enable(uchar IsOpen)
 {
-	//IFS0bits.T2IF=0;									//Çå³ý±êÖ¾Î»		
+	//IFS0bits.T2IF=0;									//æ¸…é™¤æ ‡å¿—ä½		
 	T2CONbits.TON=IsOpen;
 }
 
   /****&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
- 			¶¨Ê±Æ÷¡¾2¡¿ÉèÖÃ====¡¾½áÊø¡¿
+ 			å®šæ—¶å™¨ã€2ã€‘è®¾ç½®====ã€ç»“æŸã€‘
  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&****/
 int main()
 {

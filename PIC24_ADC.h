@@ -3,9 +3,9 @@
 #ifndef PIC24EP_ADC_H
 #define PIC24EP_ADC_H
 
-extern	void Init_ADC();									//AD³õÊ¼»¯
-extern	void ADC_Enable(uchar IsON);						//Ê¹ÄÜADC
-extern  int  Read_AN0();						//¶ÁÈ¡Î»ÖÃAD
-extern  int  Read_AN1();						//¶ÁÈ¡Î»ÖÃAD
+extern	void Init_ADC();									//ADåˆå§‹åŒ–
+extern	void ADC_Enable(uchar IsON);						//ä½¿èƒ½ADC
+extern  int  Read_AN0();						//è¯»å–ä½ç½®AD
+extern  int  Read_AN1();						//è¯»å–ä½ç½®AD
 
 #endif

@@ -2,14 +2,14 @@
  * File:   gapsize.h
  * Author: dengheping
  *
- * Created on 2017Äê7ÔÂ10ÈÕ, ÏÂÎç3:57
+ * Created on 2017å¹´7æœˆ10æ—¥, ä¸‹åˆ3:57
  */
 
 #ifndef GAPTEST_H
 #define	GAPTEST_H
 
-extern void gapsize(char *M,char *N);//·µ»ØÏòÏÂ¼äÏ¶MºÍÏòÉÏ¼äÏ¶NµÄ±äÁ¿Ö¸Õë¡£
-extern int _GapTest();//»ñµÃ¼äÏ¶Öµ
+extern void gapsize(char *M,char *N);//è¿”å›å‘ä¸‹é—´éš™Må’Œå‘ä¸Šé—´éš™Nçš„å˜é‡æŒ‡é’ˆã€‚
+extern int _GapTest();//è·å¾—é—´éš™å€¼
 extern int _Gap;
 #ifdef	__cplusplus
 extern "C" {
