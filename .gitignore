@@ -1,0 +1,6 @@
+.vscode/
+nbproject/
+dist/
+build/
+.dist/
+debug/

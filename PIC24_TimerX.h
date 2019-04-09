@@ -15,8 +15,8 @@
 
 extern  char    AN1StableMK;//输出电压稳定标志位，=0不稳定，=1稳定
 extern  char    AN0StableMK;//给定信号稳定标志位，=0不稳定，=1稳定
-extern  int     ADC_AN1[AdcArNum];//采样值保存数组
-extern  int     ADC_AN0[AdcArNum];//采样值保存数组
+extern  int     ADC_AN1[ADSAMPNUM];//采样值保存数组
+extern  int     ADC_AN0[ADSAMPNUM];//采样值保存数组
 extern  int     px;//数组旧值保存位置标号
 extern  char    _tf2;
 extern  char    _tf3;

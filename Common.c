@@ -5,185 +5,190 @@
 #include "Common.h"
 #include "PIC24_TimerX.h"
 
-
-
 /**************************************************
-º¯ÊıÃû³Æ£ºvoid DelayUs(uint x)
-º¯Êı¹¦ÄÜ£ºÑÓÊ±º¯Êı
-Èë¿Ú²ÎÊı£ºx
-³ö¿Ú²ÎÊı£ºÎŞ
-±¸×¢£º  
+å‡½æ•°åç§°ï¼švoid DelayUs(uint x)
+å‡½æ•°åŠŸèƒ½ï¼šå»¶æ—¶å‡½æ•°
+å…¥å£å‚æ•°ï¼šx
+å‡ºå£å‚æ•°ï¼šæ— 
+å¤‡æ³¨ï¼š  
 **************************************************/
-void DelayUs(uint x)	
- {
-	uint k;
-	for (k=x*4*CTTimes;k>0;k--);
- }
+void DelayUs(uint x)
+{
+    uint k;
+    for (k = x * 4 * CTTimes; k > 0; k--)
+        ;
+}
 /********************************************************
-º¯ÊıÃû³Æ£ºDelayMs(uint x)
-º¯Êı¹¦ÄÜ£ºÑÓÊ±º¯Êı
-Èë¿Ú²ÎÊı£ºx	
-³ö¿Ú²ÎÊı£ºÎŞ
-±¸×¢£ºi<89 ºÁÃëÑÓÊ± ¾«¶È0.5%	x=1Ê±ÑÓÊ±1ms	4M¾§Õñ
+å‡½æ•°åç§°ï¼šDelayMs(uint x)
+å‡½æ•°åŠŸèƒ½ï¼šå»¶æ—¶å‡½æ•°
+å…¥å£å‚æ•°ï¼šx	
+å‡ºå£å‚æ•°ï¼šæ— 
+å¤‡æ³¨ï¼ši<89 æ¯«ç§’å»¶æ—¶ ç²¾åº¦0.5%	x=1æ—¶å»¶æ—¶1ms	4Mæ™¶æŒ¯
       i<89x4                                    16M 
 **************************************************/
 void DelayMs(uint x)
 {
-	ulong k;
+    ulong k;
     uint j;
-	for (j=20*x;j>0;j--)
-	{
-		for (k=KHZ(416.7);k>0;k--)ClrWdt();
-	}
+    for (j = 20 * x; j > 0; j--)
+    {
+        for (k = KHZ(416.7); k > 0; k--)
+            ClrWdt();
+    }
 }
 
-void delaytime(int timerprod)//ÑÓÊ±×Ó³ÌĞò£¬timerprodÎªĞèÒªÑÓÊ±µÄmsÖµ
+void delaytime(int timerprod) //å»¶æ—¶å­ç¨‹åºï¼Œtimerprodä¸ºéœ€è¦å»¶æ—¶çš„mså€¼
 {
-    int i=0;
-    while(i!=timerprod)
+    int i = 0;
+    while (i != timerprod)
     {
-        if(_tf3==1)
+        if (_tf3 == 1)
         {
-            _tf3=0;
+            _tf3 = 0;
             i++;
         }
     }
 }
 /******************************************************** 
-º¯ÊıÃû³Æ£ºFlash_LED(uchar LED,uint Time,uchar FlashTimes)
-¹¦ÄÜÃèÊö£ºLEDÉÁË¸
-È«¾Ö±äÁ¿£ºÎŞ 
-²ÎÊıËµÃ÷£ºLED,TIME FLASHTIME
-·µ»ØËµÃ÷£º
-Éè ¼Æ ÈË£º
-°æ    ±¾£º1.0 
-Ëµ    Ã÷£ºwww.kld.cn
-********************************************************/ 
-void Flash_LED(uint Time,uchar FlashTimes)
+å‡½æ•°åç§°ï¼šFlash_LED(uchar LED,uint Time,uchar FlashTimes)
+åŠŸèƒ½æè¿°ï¼šLEDé—ªçƒ
+å…¨å±€å˜é‡ï¼šæ—  
+å‚æ•°è¯´æ˜ï¼šLED,TIME FLASHTIME
+è¿”å›è¯´æ˜ï¼š
+è®¾ è®¡ äººï¼š
+ç‰ˆ    æœ¬ï¼š1.0 
+è¯´    æ˜ï¼šwww.kld.cn
+********************************************************/
+void Flash_LED(uint Time, uchar FlashTimes)
 {
     uchar i;
-    for(i=0;i<FlashTimes;i++)
+    for (i = 0; i < FlashTimes; i++)
     {
-        LED2=0;
+        LED2 = 0;
         delaytime(Time);
-        LED2=1;
+        LED2 = 1;
         delaytime(Time);
     }
 }
 
-void Flash_LED1(uint Time,uchar FlashTimes)	
+void Flash_LED1(uint Time, uchar FlashTimes)
 {
     uchar i;
-    for(i=0;i<FlashTimes;i++)
+    for (i = 0; i < FlashTimes; i++)
     {
-        LED1=0;
+        LED1 = 0;
         delaytime(Time);
-        LED1=1;
+        LED1 = 1;
         delaytime(Time);
     }
 }
 /**************************************************
-º¯ÊıÃû³Æ£ºAbs_Subb(int a,int b)
-º¯Êı¹¦ÄÜ£ºÇó¾ø¶ÔÖµ²î
-Èë¿Ú²ÎÊı£ºT,Time	
-³ö¿Ú²ÎÊı£ºÎŞ
-±¸×¢£º
+å‡½æ•°åç§°ï¼šAbs_Subb(int a,int b)
+å‡½æ•°åŠŸèƒ½ï¼šæ±‚ç»å¯¹å€¼å·®
+å…¥å£å‚æ•°ï¼šT,Time	
+å‡ºå£å‚æ•°ï¼šæ— 
+å¤‡æ³¨ï¼š
 **************************************************/
-uint Abs_Subb(int a ,int b)
+uint Abs_Subb(int a, int b)
 {
-    if (a>=b) return a-b;
-    else return b-a;
+    if (a >= b)
+        return a - b;
+    else
+        return b - a;
 }
 
 /***************************************************
-º¯ÊıÃû³Æ£ºuint CountAvg_Advalue(uint *ADV,uchar Times)
-Èë¿Ú²ÎÊı£ºÎŞ
-³ö¿Ú²ÎÊı£ºÎŞ
-±¸×¢£ºÈ¥µôÒ»¸ö×î´óÖµ£¬Ò»¸ö×îĞ¡Öµ£¬È»ºóÇóÆ½¾ùÖµ
+å‡½æ•°åç§°ï¼šuint CountAvg_Advalue(uint *ADV,uchar Times)
+å…¥å£å‚æ•°ï¼šæ— 
+å‡ºå£å‚æ•°ï¼šæ— 
+å¤‡æ³¨ï¼šå»æ‰ä¸€ä¸ªæœ€å¤§å€¼ï¼Œä¸€ä¸ªæœ€å°å€¼ï¼Œç„¶åæ±‚å¹³å‡å€¼
 **************************************************/
-uint CountAvg_Advalue(uint *ADV,uchar Times)
+uint CountAvg_Advalue(uint *ADV, uchar Times)
 {
-	uchar i;
-	uint Min,Max;
-	Min=ADV[0];
-	Max=Min;
-	for(i=0;i<Times;i++) 
-	{
-		 if(ADV[i]<Min) Min=ADV[i];						//Í³¼Æ×îĞ¡Öµ
-		 if(ADV[i]>Max) Max=ADV[i];						//Í³¼Æ×î´óÖµ
-	}
-	uint CountAll=0;
-	uint Avg=0;
-	for(i=0;i<Times;i++) CountAll=CountAll+ADV[i]; 		//Í³¼Æ×ÜÊı
-	CountAll=CountAll-Min-Max;							//È¥µô×î´óÖµ£¬È¥µô×îĞ¡Öµ
-	Avg=CountAll/(Times-2);								//ÇóÆ½¾ùÖµ
-	return Avg;
+    uchar i;
+    uint Min, Max;
+    Min = ADV[0];
+    Max = Min;
+    for (i = 0; i < Times; i++)
+    {
+        if (ADV[i] < Min)
+            Min = ADV[i]; //ç»Ÿè®¡æœ€å°å€¼
+        if (ADV[i] > Max)
+            Max = ADV[i]; //ç»Ÿè®¡æœ€å¤§å€¼
+    }
+    uint CountAll = 0;
+    uint Avg = 0;
+    for (i = 0; i < Times; i++)
+        CountAll = CountAll + ADV[i]; //ç»Ÿè®¡æ€»æ•°
+    CountAll = CountAll - Min - Max;  //å»æ‰æœ€å¤§å€¼ï¼Œå»æ‰æœ€å°å€¼
+    Avg = CountAll / (Times - 2);     //æ±‚å¹³å‡å€¼
+    return Avg;
 }
 
 /***************************************************
-º¯ÊıÃû³Æ£ºint Max(int *array, int arrayNum)
-Èë¿Ú²ÎÊı£ºÎŞ
-³ö¿Ú²ÎÊı£ºÎŞ
-±¸×¢£º×î´óÖµ
+å‡½æ•°åç§°ï¼šint Max(int *array, int arrayNum)
+å…¥å£å‚æ•°ï¼šæ— 
+å‡ºå£å‚æ•°ï¼šæ— 
+å¤‡æ³¨ï¼šæœ€å¤§å€¼
 **************************************************/
 int Max(int *array, int arrayNum)
-{    
-    int max;    
+{
+    int max;
     int min;
-    if(arrayNum==0)
+    if (arrayNum == 0)
     {
         return -1;
     }
     else
     {
-        max=array[0];
-        min=array[0];
+        max = array[0];
+        min = array[0];
         int i;
-        for(i=0; i<arrayNum; i++)
-        { 
-           if(max<array[i])
+        for (i = 0; i < arrayNum; i++)
+        {
+            if (max < array[i])
             {
-                max=array[i];
+                max = array[i];
             }
-            if(min>array[i])
-            { 
-               min=array[i];
-            } 
-       }
-       return max;
+            if (min > array[i])
+            {
+                min = array[i];
+            }
+        }
+        return max;
     }
 }
 
 /***************************************************
-º¯ÊıÃû³Æ£ºint Min(int *array, int arrayNum)
-Èë¿Ú²ÎÊı£ºÎŞ
-³ö¿Ú²ÎÊı£ºÎŞ
-±¸×¢£º×îĞ¡Öµ
+å‡½æ•°åç§°ï¼šint Min(int *array, int arrayNum)
+å…¥å£å‚æ•°ï¼šæ— 
+å‡ºå£å‚æ•°ï¼šæ— 
+å¤‡æ³¨ï¼šæœ€å°å€¼
 **************************************************/
 int Min(int *array, int arrayNum)
-{    
-    int max;    
+{
+    int max;
     int min;
-    if(arrayNum==0)
+    if (arrayNum == 0)
     {
         return -1;
     }
     else
     {
-        max=array[0];
-        min=array[0];
+        max = array[0];
+        min = array[0];
         int i;
-        for(i=0; i<arrayNum; i++)
-        { 
-           if(max<array[i])
+        for (i = 0; i < arrayNum; i++)
+        {
+            if (max < array[i])
             {
-                max=array[i];
+                max = array[i];
             }
-            if(min>array[i])
-            { 
-               min=array[i];
+            if (min > array[i])
+            {
+                min = array[i];
             }
-       }
-       return min;
+        }
+        return min;
     }
 }
